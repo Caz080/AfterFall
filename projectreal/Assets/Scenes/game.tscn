@@ -83,7 +83,6 @@ mesh = SubResource("CylinderMesh_4kutc")
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
 currentCamera = NodePath("Offset/MainCamera")
-currentNPC = 5
 
 [node name="Offset" type="Node3D" parent="Player" unique_id=1089858579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)

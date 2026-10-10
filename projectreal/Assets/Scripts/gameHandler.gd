@@ -10,10 +10,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _on_move_right_button_pressed() -> void:
-	currentPlayer.currentNPC += 1
-
-
-func _on_move_left_button_pressed() -> void:
-	currentPlayer.currentNPC -= 1
