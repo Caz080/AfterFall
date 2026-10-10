@@ -7,9 +7,11 @@
 [ext_resource type="Shader" uid="uid://drf1xmg6e2cik" path="res://Assets/Shaders/Pixel.gdshader" id="4_pb48a"]
 [ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="5_fw1vi"]
 [ext_resource type="Texture2D" uid="uid://clvd4ns1v0xwi" path="res://Assets/Sprites/Sprite-dialoguebox.png" id="6_fw1vi"]
+[ext_resource type="FontFile" uid="uid://clp4rnceqgjkk" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="6_nvds3"]
 [ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="6_tpq0m"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
+[ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="9_yhnra"]
 [ext_resource type="Script" uid="uid://b3erpkbpt4hpf" path="res://Assets/Scenes/gamefadescript.gd" id="10_xf01c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
@@ -146,6 +148,7 @@ offset_right = -27.0
 offset_bottom = -19.005005
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_nvds3")
 text = "Waiting..."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -163,6 +166,7 @@ offset_right = 10.0
 offset_bottom = 25.500092
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_nvds3")
 text = "Hold space to ask question"
 horizontal_alignment = 1
 
@@ -206,15 +210,17 @@ layout_mode = 2
 [node name="Person" type="Label" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=1975478449]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3372549, 0.62352943, 0.99607843, 1)
-theme_override_font_sizes/font_size = 20
-text = "---"
+theme_override_fonts/font = ExtResource("9_yhnra")
+theme_override_font_sizes/font_size = 30
+text = "John Doe"
 
 [node name="Dialogue" type="RichTextLabel" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=451130029]
 custom_minimum_size = Vector2(0, 85.33)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_nvds3")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "---"
+text = "The quick brown fox jumps over the lazy dog."
 script = ExtResource("5_fw1vi")
 
 [node name="TextureRect2" type="TextureRect" parent="gameUI" unique_id=1099410730]
