@@ -15,6 +15,9 @@ extends Node3D
 			currentNPC = new_val
 			update_camera()
 
+var rotation_dur: float = 0.4
+var camTween: Tween
+
 # between 90 to -90 (180 diff)
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +34,8 @@ func _process(delta: float) -> void:
 
 func update_camera():
 	if currentCamera:
-		rotation_degrees.y = 90 - ((currentNPC-1)*36)
+		faceDir()
+		#rotation_degrees.y = 90 - ((currentNPC-1)*36)
 
 	
 	if not is_inside_tree():
@@ -47,6 +51,23 @@ func update_camera():
 	else:
 		moveRightButton.visible = true
 
+func faceDir() -> void:
+	var target_angle = 90 - ((currentNPC-1)*36)#atan2(-flat_dir.x, -flat_dir.z)
+	
+	if camTween and camTween.is_valid():
+		camTween.kill()
+	
+	camTween = create_tween()
+	camTween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	camTween.tween_method(
+		_apply_rotation.bind(rotation_degrees.y, target_angle),
+		0.0,
+		1.0,
+		rotation_dur
+	)
+
+func _apply_rotation(weight: float, start: float, target: float) -> void:
+	rotation_degrees.y = lerp(start, target, weight)
 
 func _on_move_right_button_pressed() -> void:
 	currentNPC += 1

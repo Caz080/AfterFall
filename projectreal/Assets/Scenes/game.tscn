@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dsoc0m1ywrfj2" path="res://Assets/Scripts/gameHandler.gd" id="1_nbu75"]
 [ext_resource type="PackedScene" uid="uid://0top1llg5dn" path="res://Assets/npc_model.tscn" id="2_lcp10"]
 [ext_resource type="PackedScene" uid="uid://co3mlqsngtq0" path="res://Assets/Player.tscn" id="2_pfbgl"]
+[ext_resource type="Texture2D" uid="uid://bexo0jh16w1by" path="res://Assets/Sprites/Sprite-Table.png" id="2_tpq0m"]
 [ext_resource type="Shader" uid="uid://drf1xmg6e2cik" path="res://Assets/Shaders/Pixel.gdshader" id="4_pb48a"]
 [ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="5_fw1vi"]
 [ext_resource type="Texture2D" uid="uid://clvd4ns1v0xwi" path="res://Assets/Sprites/Sprite-dialoguebox.png" id="6_fw1vi"]
@@ -41,7 +42,7 @@ albedo_color = Color(0.74641854, 0.47252178, 0.36837062, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4kutc"]
 material = SubResource("StandardMaterial3D_pfbgl")
-top_radius = 1.5
+top_radius = 1.3
 bottom_radius = 1.0
 height = 0.3
 
@@ -73,6 +74,11 @@ mesh = SubResource("QuadMesh_4kutc")
 [node name="Table" type="MeshInstance3D" parent="." unique_id=911669620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 mesh = SubResource("CylinderMesh_4kutc")
+
+[node name="tableSprite" type="Sprite3D" parent="Table" unique_id=1810472771]
+transform = Transform3D(0.31, 0, 0, 0, -1.35505305e-08, -0.31, 0, 0.31, -1.35505305e-08, 0, 0.151, 0)
+modulate = Color(0.49558914, 0.2940443, 0.1411663, 1)
+texture = ExtResource("2_tpq0m")
 
 [node name="NPC_5" parent="." unique_id=246952568 instance=ExtResource("2_lcp10")]
 transform = Transform3D(0.58778524, 0, -0.80901706, 0, 1, 0, 0.80901706, 0, 0.58778524, 1.4157798, -0.714, -1.028624)
