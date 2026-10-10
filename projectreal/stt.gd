@@ -7,6 +7,8 @@ var http := HTTPRequest.new()
 const URL := "https://api.elevenlabs.io/v1/speech-to-text"
 const MODEL_ID := "scribe_v1"
 
+var listeningtxt = "Waiting..."
+
 var secrets = ConfigFile.new()
 var err = secrets.load("res://secrets.cfg")
 var voicekey = secrets.get_value("api","elevenlabs_key","")
@@ -29,10 +31,12 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("push_to_talk") and not event.is_echo():
 		#print("listening...")
+		listeningtxt = "Listening..."
 		record.set_recording_active(true)
 		get_viewport().set_input_as_handled()
 	elif event.is_action_released("push_to_talk"):
 		#print("stopped listening")
+		listeningtxt = "Waiting..."
 		record.set_recording_active(false)
 		_send_recording(record.get_recording())
 		get_viewport().set_input_as_handled()

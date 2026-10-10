@@ -14,6 +14,7 @@ var http_request
 # 
 
 var output_label: RichTextLabel
+
 var cur_char: int
 
 var alien
@@ -49,6 +50,7 @@ func _ready():
 	
 func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	self.output_label = lbl
+	
 	self.cur_char = charc
 	
 	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent"

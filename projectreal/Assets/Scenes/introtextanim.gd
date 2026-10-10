@@ -1,7 +1,7 @@
 extends VBoxContainer
 
-@export var fadeTime := 2
-@export var stagger := 1
+@export var fadeTime := 1.5
+@export var stagger := 0.7
 
 
 func fade_in_children() -> void:
