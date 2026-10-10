@@ -1,28 +1,102 @@
 [gd_scene format=3 uid="uid://xu7vkpqph630"]
 
+[ext_resource type="Texture2D" uid="uid://dwv1lhodrc2p7" path="res://icon.svg" id="1_7s2fk"]
+[ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="2_3thnl"]
+[ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="2_y37xc"]
+
 [node name="UiScene" type="Node2D" unique_id=2087677027]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1612665522]
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=885120748]
 
-[node name="extends Nodevar secrets = ConfigFile_new()var err = secrets_load(_res___secrets_cfg_)var voicekey = secrets_get_value(_api_,_elevenlabs_key_,__)_onready var audio_player_ AudioStreamPlayer = $AudioStreamPlayervar http_requestvar voices = {1_ _DtQLDxHbTiQTpVVanTy1_,2_ _WZlYpi1yf6zJhNWXih74_,3_ _OYTbf65OHHFELVut7v2H_,4_ _QAmlwgbPtjxpk7u98Qs9_,5_ _ogwqBH5bbF03DSbNiRNN_,6_ _ZF6FPAbjXT4488VcRRnw_}# Called when the node enters the scene tree for the first time_func _ready() -> void_http_request = $HTTPRequesthttp_request_request_completed_connect(_on_request_completed)func speak(text_ String, char_ int)_var url = _https___api_elevenlabs_io_v1_text-to-speech__ + voices[char]var headers = [_xi-api-key_ _+voicekey,_Content-Type_ application_json_]var body = {_text__ text,_model_id__ _eleven_flash_v2_5_}var json_body = JSON_stringify(body)var error = http_request_request(url+_?output_format=mp3_44100_128_,headers,HTTPClient_METHOD_POST,json_body)if error != OK_print(_Failed to send request_ _, error)func _on_request_completed(result_ int,response_code_ int,headers_ PackedStringArray,body_ PackedByteArray)_if response_code == 200_var audio = AudioStreamMP3_load_from_buffer(body)audio_player_stream = audioaudio_player_play()else_print(_ElevenLabs error_ _, response_code)print(body_get_string_from_utf8())" type="CanvasLayer" parent="Node2D" unique_id=1090772795]
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=1090772795]
 
-[node name="Control" type="Control" parent="Node2D/extends Nodevar secrets = ConfigFile_new()var err = secrets_load(_res___secrets_cfg_)var voicekey = secrets_get_value(_api_,_elevenlabs_key_,__)_onready var audio_player_ AudioStreamPlayer = $AudioStreamPlayervar http_requestvar voices = {1_ _DtQLDxHbTiQTpVVanTy1_,2_ _WZlYpi1yf6zJhNWXih74_,3_ _OYTbf65OHHFELVut7v2H_,4_ _QAmlwgbPtjxpk7u98Qs9_,5_ _ogwqBH5bbF03DSbNiRNN_,6_ _ZF6FPAbjXT4488VcRRnw_}# Called when the node enters the scene tree for the first time_func _ready() -> void_http_request = $HTTPRequesthttp_request_request_completed_connect(_on_request_completed)func speak(text_ String, char_ int)_var url = _https___api_elevenlabs_io_v1_text-to-speech__ + voices[char]var headers = [_xi-api-key_ _+voicekey,_Content-Type_ application_json_]var body = {_text__ text,_model_id__ _eleven_flash_v2_5_}var json_body = JSON_stringify(body)var error = http_request_request(url+_?output_format=mp3_44100_128_,headers,HTTPClient_METHOD_POST,json_body)if error != OK_print(_Failed to send request_ _, error)func _on_request_completed(result_ int,response_code_ int,headers_ PackedStringArray,body_ PackedByteArray)_if response_code == 200_var audio = AudioStreamMP3_load_from_buffer(body)audio_player_stream = audioaudio_player_play()else_print(_ElevenLabs error_ _, response_code)print(body_get_string_from_utf8())" unique_id=516214148]
+[node name="Control" type="Control" parent="Node2D/CanvasLayer" unique_id=516214148]
+custom_maximum_size = Vector2(700, 300)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 226.0
+offset_top = 45.0
+offset_right = -226.0
+offset_bottom = 300.0
+grow_horizontal = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Node2D/extends Nodevar secrets = ConfigFile_new()var err = secrets_load(_res___secrets_cfg_)var voicekey = secrets_get_value(_api_,_elevenlabs_key_,__)_onready var audio_player_ AudioStreamPlayer = $AudioStreamPlayervar http_requestvar voices = {1_ _DtQLDxHbTiQTpVVanTy1_,2_ _WZlYpi1yf6zJhNWXih74_,3_ _OYTbf65OHHFELVut7v2H_,4_ _QAmlwgbPtjxpk7u98Qs9_,5_ _ogwqBH5bbF03DSbNiRNN_,6_ _ZF6FPAbjXT4488VcRRnw_}# Called when the node enters the scene tree for the first time_func _ready() -> void_http_request = $HTTPRequesthttp_request_request_completed_connect(_on_request_completed)func speak(text_ String, char_ int)_var url = _https___api_elevenlabs_io_v1_text-to-speech__ + voices[char]var headers = [_xi-api-key_ _+voicekey,_Content-Type_ application_json_]var body = {_text__ text,_model_id__ _eleven_flash_v2_5_}var json_body = JSON_stringify(body)var error = http_request_request(url+_?output_format=mp3_44100_128_,headers,HTTPClient_METHOD_POST,json_body)if error != OK_print(_Failed to send request_ _, error)func _on_request_completed(result_ int,response_code_ int,headers_ PackedStringArray,body_ PackedByteArray)_if response_code == 200_var audio = AudioStreamMP3_load_from_buffer(body)audio_player_stream = audioaudio_player_play()else_print(_ElevenLabs error_ _, response_code)print(body_get_string_from_utf8())/Control" unique_id=762364615]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D/CanvasLayer/Control" unique_id=762364615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7s2fk")
 
-[node name="MarginContainer" type="MarginContainer" parent="Node2D/extends Nodevar secrets = ConfigFile_new()var err = secrets_load(_res___secrets_cfg_)var voicekey = secrets_get_value(_api_,_elevenlabs_key_,__)_onready var audio_player_ AudioStreamPlayer = $AudioStreamPlayervar http_requestvar voices = {1_ _DtQLDxHbTiQTpVVanTy1_,2_ _WZlYpi1yf6zJhNWXih74_,3_ _OYTbf65OHHFELVut7v2H_,4_ _QAmlwgbPtjxpk7u98Qs9_,5_ _ogwqBH5bbF03DSbNiRNN_,6_ _ZF6FPAbjXT4488VcRRnw_}# Called when the node enters the scene tree for the first time_func _ready() -> void_http_request = $HTTPRequesthttp_request_request_completed_connect(_on_request_completed)func speak(text_ String, char_ int)_var url = _https___api_elevenlabs_io_v1_text-to-speech__ + voices[char]var headers = [_xi-api-key_ _+voicekey,_Content-Type_ application_json_]var body = {_text__ text,_model_id__ _eleven_flash_v2_5_}var json_body = JSON_stringify(body)var error = http_request_request(url+_?output_format=mp3_44100_128_,headers,HTTPClient_METHOD_POST,json_body)if error != OK_print(_Failed to send request_ _, error)func _on_request_completed(result_ int,response_code_ int,headers_ PackedStringArray,body_ PackedByteArray)_if response_code == 200_var audio = AudioStreamMP3_load_from_buffer(body)audio_player_stream = audioaudio_player_play()else_print(_ElevenLabs error_ _, response_code)print(body_get_string_from_utf8())/Control" unique_id=735893927]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="Node2D/CanvasLayer/Control" unique_id=735893927]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 33
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 18
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/extends Nodevar secrets = ConfigFile_new()var err = secrets_load(_res___secrets_cfg_)var voicekey = secrets_get_value(_api_,_elevenlabs_key_,__)_onready var audio_player_ AudioStreamPlayer = $AudioStreamPlayervar http_requestvar voices = {1_ _DtQLDxHbTiQTpVVanTy1_,2_ _WZlYpi1yf6zJhNWXih74_,3_ _OYTbf65OHHFELVut7v2H_,4_ _QAmlwgbPtjxpk7u98Qs9_,5_ _ogwqBH5bbF03DSbNiRNN_,6_ _ZF6FPAbjXT4488VcRRnw_}# Called when the node enters the scene tree for the first time_func _ready() -> void_http_request = $HTTPRequesthttp_request_request_completed_connect(_on_request_completed)func speak(text_ String, char_ int)_var url = _https___api_elevenlabs_io_v1_text-to-speech__ + voices[char]var headers = [_xi-api-key_ _+voicekey,_Content-Type_ application_json_]var body = {_text__ text,_model_id__ _eleven_flash_v2_5_}var json_body = JSON_stringify(body)var error = http_request_request(url+_?output_format=mp3_44100_128_,headers,HTTPClient_METHOD_POST,json_body)if error != OK_print(_Failed to send request_ _, error)func _on_request_completed(result_ int,response_code_ int,headers_ PackedStringArray,body_ PackedByteArray)_if response_code == 200_var audio = AudioStreamMP3_load_from_buffer(body)audio_player_stream = audioaudio_player_play()else_print(_ElevenLabs error_ _, response_code)print(body_get_string_from_utf8())/Control/MarginContainer" unique_id=616171676]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CanvasLayer/Control/MarginContainer" unique_id=616171676]
 layout_mode = 2
+
+[node name="Person" type="Label" parent="Node2D/CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1793674695]
+layout_mode = 2
+text = "Person 1"
+
+[node name="Dialogue" type="RichTextLabel" parent="Node2D/CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1815171494]
+custom_minimum_size = Vector2(0, 158.605)
+layout_mode = 2
+bbcode_enabled = true
+text = "Test"
+script = ExtResource("2_3thnl")
+
+[node name="Control2" type="Control" parent="Node2D/CanvasLayer" unique_id=1325651058]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D/CanvasLayer/Control2" unique_id=1794251509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D/CanvasLayer/Control2" unique_id=2032882856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CanvasLayer/Control2/MarginContainer" unique_id=1337524444]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=1630265086]
+layout_mode = 2
+editable = false
+script = ExtResource("2_y37xc")
+
+[node name="Label" type="Label" parent="Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=1127957935]
+layout_mode = 2
+text = "Hold space to ask question"
+horizontal_alignment = 1
