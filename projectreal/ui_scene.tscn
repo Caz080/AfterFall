@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xu7vkpqph630"]
 
 [ext_resource type="Texture2D" uid="uid://dwv1lhodrc2p7" path="res://icon.svg" id="1_7s2fk"]
+[ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="2_3thnl"]
 [ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="2_y37xc"]
 
 [node name="UiScene" type="Node2D" unique_id=2087677027]
@@ -50,9 +51,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Person 1"
 
-[node name="Dialogue" type="Label" parent="Node2D/CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=2141321376]
+[node name="Dialogue" type="RichTextLabel" parent="Node2D/CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1815171494]
+custom_minimum_size = Vector2(0, 158.605)
 layout_mode = 2
-text = "Hello world!"
+bbcode_enabled = true
+text = "Test"
+script = ExtResource("2_3thnl")
 
 [node name="Control2" type="Control" parent="Node2D/CanvasLayer" unique_id=1325651058]
 layout_mode = 3
@@ -89,9 +93,10 @@ layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=1630265086]
 layout_mode = 2
+editable = false
 script = ExtResource("2_y37xc")
 
 [node name="Label" type="Label" parent="Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=1127957935]
 layout_mode = 2
-text = "Press enter to ask"
+text = "Hold space to ask question"
 horizontal_alignment = 1

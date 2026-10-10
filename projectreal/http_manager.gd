@@ -13,7 +13,7 @@ var http_request
 
 # 
 
-var output_label: Label
+var output_label: RichTextLabel
 var cur_char: int
 
 var personalities = {
@@ -44,9 +44,9 @@ func _ready():
 	
 	
 	
-func ask_question(prompt: String, char: int, lbl: Label):
+func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	self.output_label = lbl
-	self.cur_char = char
+	self.cur_char = charc
 	
 	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent"
 	var headers = ["content-type: application/json"]
@@ -57,7 +57,7 @@ func ask_question(prompt: String, char: int, lbl: Label):
 		"system_instruction": {
 			"parts":[
 				{
-					"text": context + personalities[char]
+					"text": context + personalities[charc]
 				}
 			]
 		},
@@ -88,7 +88,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 		var parsed = json.parse_string(response_text)
 		var rtext = parsed["candidates"][0]["content"]["parts"][0]["text"]
 		##print("Reply: ", parsed)
-		output_label.text = rtext
+		output_label.typeText(rtext)
 		tts.speak(rtext, cur_char)
 		
 	else:

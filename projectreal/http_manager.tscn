@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2ma2sey7ue1w" path="res://http_manager.gd" id="1_17u7c"]
 [ext_resource type="Script" uid="uid://c363vxmle7h01" path="res://speech.gd" id="2_xesf0"]
+[ext_resource type="Script" uid="uid://p81vu25ajnvg" path="res://stt.gd" id="3_5ftmm"]
 
 [node name="HttpManager" type="Node2D" unique_id=76654581]
 script = ExtResource("1_17u7c")
@@ -14,3 +15,8 @@ script = ExtResource("2_xesf0")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TTS" unique_id=75825655]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1206523635]
+
+[node name="STT" type="Node" parent="." unique_id=1314296670]
+script = ExtResource("3_5ftmm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="STT" unique_id=1608831008]
