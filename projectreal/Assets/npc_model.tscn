@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://0top1llg5dn"]
 
 [ext_resource type="Script" uid="uid://cowlmlchaomq8" path="res://Assets/Scripts/npcHandler.gd" id="1_rdagg"]
-[ext_resource type="Texture2D" uid="uid://7rs2d4x0tfg0" path="res://Assets/Sprites/Sprite-person.png" id="2_kqdkm"]
+[ext_resource type="Texture2D" uid="uid://bnpj2d03bdgbd" path="res://Assets/Sprites/Sprite-person-base.png" id="2_17owo"]
+[ext_resource type="Texture2D" uid="uid://dlu6xw5s25ku3" path="res://Assets/Sprites/Sprite-mohawk.png" id="3_rnwvp"]
+[ext_resource type="Texture2D" uid="uid://cn4ycpd3hwuui" path="res://Assets/Sprites/Sprite-baldpatch.png" id="4_xnmoo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kutc"]
 transparency = 1
@@ -18,6 +20,17 @@ material_override = SubResource("StandardMaterial3D_4kutc")
 transparency = 1.0
 mesh = SubResource("QuadMesh_4kutc")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1497271126]
+[node name="Base" type="Sprite3D" parent="." unique_id=1497271126]
 transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0)
-texture = ExtResource("2_kqdkm")
+texture = ExtResource("2_17owo")
+
+[node name="Hairs" type="Node3D" parent="Base" unique_id=2135009063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+
+[node name="Mohawk" type="Sprite3D" parent="Base/Hairs" unique_id=1214030439]
+visible = false
+texture = ExtResource("3_rnwvp")
+
+[node name="Bald" type="Sprite3D" parent="Base/Hairs" unique_id=1580729177]
+visible = false
+texture = ExtResource("4_xnmoo")
