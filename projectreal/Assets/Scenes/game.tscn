@@ -214,7 +214,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.3372549, 0.62352943, 0.99607843, 1)
 theme_override_fonts/font = ExtResource("9_yhnra")
 theme_override_font_sizes/font_size = 30
-text = "John Doe"
+text = "---"
 
 [node name="Dialogue" type="RichTextLabel" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=451130029]
 custom_minimum_size = Vector2(0, 85.33)
@@ -222,31 +222,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("6_nvds3")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "The quick brown fox jumps over the lazy dog."
 script = ExtResource("5_fw1vi")
-
-[node name="TextureRect2" type="TextureRect" parent="gameUI" unique_id=1099410730]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_4ao11")
-script = ExtResource("10_xf01c")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="gameUI" unique_id=2103881938]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="guessBtn" type="TextureButton" parent="gameUI" unique_id=391228713]
 anchors_preset = 6
@@ -263,6 +239,28 @@ grow_vertical = 2
 texture_normal = ExtResource("11_xf01c")
 stretch_mode = 0
 script = ExtResource("12_nvds3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gameUI" unique_id=2103881938]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="gameUI" unique_id=1099410730]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_4ao11")
+script = ExtResource("10_xf01c")
 
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
