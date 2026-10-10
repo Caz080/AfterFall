@@ -249,6 +249,7 @@ offset_top = 558.0
 offset_right = 1200.0
 offset_bottom = 658.0
 texture_normal = ExtResource("11_xf01c")
+stretch_mode = 0
 
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
