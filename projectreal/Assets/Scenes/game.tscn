@@ -38,7 +38,7 @@ top_radius = 1.5
 bottom_radius = 1.0
 height = 0.3
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcp10"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fw1vi"]
 shader = ExtResource("4_pb48a")
 shader_parameter/pixel_size = 4.0
 
@@ -80,84 +80,20 @@ mesh = SubResource("QuadMesh_4kutc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 mesh = SubResource("CylinderMesh_4kutc")
 
-[node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
-currentCamera = NodePath("Offset/MainCamera")
-
-[node name="Offset" type="Node3D" parent="Player" unique_id=1089858579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
-
-[node name="MainCamera" type="Camera3D" parent="Player/Offset" unique_id=841100218]
-
-[node name="Node2D" type="Node2D" parent="Player" unique_id=1387400898]
-
-[node name="Node2D" type="Node2D" parent="Player/Node2D" unique_id=2012874666]
-
-[node name="Camera2D" type="Camera2D" parent="Player/Node2D/Node2D" unique_id=294524051]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Node2D/Node2D" unique_id=564631237]
-visible = false
-
-[node name="Control2" type="Control" parent="Player/Node2D/Node2D/CanvasLayer" unique_id=573322764]
-visible = false
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -142.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1997412296]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1577500004]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -62.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer" unique_id=1351576184]
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=521858946]
-layout_mode = 2
-editable = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=2145271708]
-texture = ExtResource("7_fw1vi")
-centered = false
-
-[node name="Shader" type="ColorRect" parent="." unique_id=2028533094]
-visible = false
-material = SubResource("ShaderMaterial_lcp10")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Node3D" type="Node3D" parent="." unique_id=475442941]
 
 [node name="Node3D2" type="Node3D" parent="Node3D" unique_id=152608839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1139144664]
+
+[node name="Shader" type="ColorRect" parent="CanvasLayer" unique_id=2028533094]
+material = SubResource("ShaderMaterial_fw1vi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=478212007]
 anchors_preset = 7
@@ -252,3 +188,66 @@ layout_mode = 2
 bbcode_enabled = true
 text = "Test"
 script = ExtResource("5_fw1vi")
+
+[node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
+currentCamera = NodePath("Offset/MainCamera")
+
+[node name="Offset" type="Node3D" parent="Player" unique_id=1089858579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
+
+[node name="MainCamera" type="Camera3D" parent="Player/Offset" unique_id=841100218]
+
+[node name="Node2D" type="Node2D" parent="Player" unique_id=1387400898]
+
+[node name="Node2D" type="Node2D" parent="Player/Node2D" unique_id=2012874666]
+
+[node name="Camera2D" type="Camera2D" parent="Player/Node2D/Node2D" unique_id=294524051]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Node2D/Node2D" unique_id=564631237]
+visible = false
+
+[node name="Control2" type="Control" parent="Player/Node2D/Node2D/CanvasLayer" unique_id=573322764]
+visible = false
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1997412296]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1577500004]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer" unique_id=1351576184]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=521858946]
+layout_mode = 2
+editable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=2145271708]
+texture = ExtResource("7_fw1vi")
+centered = false
