@@ -1,6 +1,9 @@
 extends Node3D
 
+@onready var txtinput = $gameUI/TextureRect/Prompt
 @onready var blackFade = $gameUI/BlackFade
+
+@onready var guessBtn = $gameUI/guessBtn
 
 @export var currentPlayer: Node3D
 
@@ -13,25 +16,28 @@ func _ready() -> void:
 	tween.tween_property(blackFade, "modulate:a", 0.0, 1.0)
 	await tween.finished
 	
+	guessBtn.pressed.connect(_on_guess_btn_pressed)
+	
 	Stt.transcribed.connect(_on_transcribed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if txtinput.text == "" or txtinput.text == "Waiting..." or Stt.listeningtxt == "Listening...":
+		txtinput.text = Stt.listeningtxt
 
 func _on_transcribed(t: String) -> void:
 	$gameUI/TextureRect/Prompt.text = t
 	#caret_column = text.length()
 	#print(t)
-	var person = get_node("../../../Player")
+	var person = currentPlayer
 	var textbox = $gameUI/Control/MarginContainer/VBoxContainer/Dialogue
 	HttpManager.ask_question(t, currentPlayer.currentNPC, textbox)
 
 func _on_guess_btn_pressed() -> void:
 	currentPlayer.active = false
+	print("test")
 	
 	var guess = currentPlayer.currentNPC
-	
 	var sustext = $gameUI/guessResult
 	sustext.text = "[shake rate=20.0 level=5 connected=1]And the alien is...[/shake]"
 	await get_tree().create_timer(3.0).timeout
@@ -43,5 +49,4 @@ func _on_guess_btn_pressed() -> void:
 		sustext.text = "You got it!"
 	else:
 		sustext.text = "You lost!"
-	
 	currentPlayer.currentNPC = HttpManager.alien

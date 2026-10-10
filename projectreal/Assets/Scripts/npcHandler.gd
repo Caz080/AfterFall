@@ -14,8 +14,3 @@ func _ready() -> void:
 	#print(name + ": " + firstName + " " + lastName + ", personality: " + var_to_str(personalityInt))
 	
 	Hairs.pick_random().visible = true
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

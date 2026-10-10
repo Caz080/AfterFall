@@ -1,15 +1,19 @@
 extends RichTextLabel
 
+@export var plr: Node3D
+
 @export var charspersec := 40.0
 var _typing := false
 
 func typeText(text: String):
+	var curnpc = plr.currentNPC
 	visible_characters = 0
 	_typing = true
 	self.text = "[wave amp=20 freq=5]"+text+"[/wave]"
 	var total := text.length()
-	while visible_characters < total:
+	while visible_characters < total or plr.currentNPC != curnpc or get_parsed_text() == "":
 		visible_characters+=1
+		if get_parsed_text() == "": break
 		var c := get_parsed_text()[visible_characters-1]
 		var delay := 1.0/charspersec
 		if c in ".!?":
