@@ -87,6 +87,7 @@ func show_name():
 	var personname = get_node("../gameUI/Control/MarginContainer/VBoxContainer/Person")
 	var npc = get_node("../NPC_"+str(currentNPC))
 	personname.text = npc.firstName + " " + npc.lastName
+	personname.add_theme_color_override("font_color", npc.npcColor)
 	
 	var textbox = get_node("../gameUI/Control/MarginContainer/VBoxContainer/Dialogue")
 	textbox.text = ""

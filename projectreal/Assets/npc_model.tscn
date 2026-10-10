@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://0top1llg5dn"]
 
 [ext_resource type="Script" uid="uid://cowlmlchaomq8" path="res://Assets/Scripts/npcHandler.gd" id="1_rdagg"]
-[ext_resource type="Texture2D" uid="uid://bnpj2d03bdgbd" path="res://Assets/Sprites/Sprite-person-base.png" id="2_17owo"]
+[ext_resource type="Texture2D" uid="uid://b11qvjrhd3erv" path="res://Assets/Sprites/Person/Sprite-Person-Head.png" id="2_xnmoo"]
 [ext_resource type="Texture2D" uid="uid://dlu6xw5s25ku3" path="res://Assets/Sprites/Sprite-mohawk.png" id="3_rnwvp"]
 [ext_resource type="Texture2D" uid="uid://cn4ycpd3hwuui" path="res://Assets/Sprites/Sprite-baldpatch.png" id="4_xnmoo"]
+[ext_resource type="Texture2D" uid="uid://b1cc0hlw2xsrv" path="res://Assets/Sprites/Person/Sprite-Person-Body.png" id="5_rn3ck"]
+[ext_resource type="Texture2D" uid="uid://5t8tf3g0qliu" path="res://Assets/Sprites/Shirts/Sprite-Regular-Shirt-Base.png" id="6_cv3sp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kutc"]
 transparency = 1
@@ -12,25 +14,54 @@ transparency = 1
 size = Vector2(1, 2)
 center_offset = Vector3(0, 1, 0)
 
+[sub_resource type="Animation" id="Animation_xnmoo"]
+resource_name = "isAlien"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rn3ck"]
+_data = {
+&"isAlien": SubResource("Animation_xnmoo")
+}
+
 [node name="NPCModel" type="Node3D" unique_id=718934892]
 script = ExtResource("1_rdagg")
+
+[node name="Shirtless" type="Sprite3D" parent="." unique_id=328855095]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0.0005)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1466718180]
 material_override = SubResource("StandardMaterial3D_4kutc")
 transparency = 1.0
 mesh = SubResource("QuadMesh_4kutc")
 
-[node name="Base" type="Sprite3D" parent="." unique_id=1497271126]
+[node name="Head" type="Sprite3D" parent="." unique_id=1119680563]
 transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0)
-texture = ExtResource("2_17owo")
+texture = ExtResource("2_xnmoo")
 
-[node name="Hairs" type="Node3D" parent="Base" unique_id=2135009063]
+[node name="Hairs" type="Node3D" parent="Head" unique_id=660385289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
 
-[node name="Mohawk" type="Sprite3D" parent="Base/Hairs" unique_id=1214030439]
+[node name="Mohawk" type="Sprite3D" parent="Head/Hairs" unique_id=257850797]
 visible = false
 texture = ExtResource("3_rnwvp")
 
-[node name="Bald" type="Sprite3D" parent="Base/Hairs" unique_id=1580729177]
+[node name="Bald" type="Sprite3D" parent="Head/Hairs" unique_id=1548588908]
 visible = false
 texture = ExtResource("4_xnmoo")
+
+[node name="Torso" type="Sprite3D" parent="." unique_id=1497271126]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0)
+texture = ExtResource("5_rn3ck")
+
+[node name="Shirts" type="Node3D" parent="Torso" unique_id=1057833016]
+
+[node name="PlainShirt" type="Sprite3D" parent="Torso/Shirts" unique_id=889587486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+visible = false
+modulate = Color(0.52906674, 0.52906674, 0.52906656, 1)
+texture = ExtResource("6_cv3sp")
+
+[node name="AlienHead" type="Sprite3D" parent="." unique_id=202503964]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=946175467]
+libraries/ = SubResource("AnimationLibrary_rn3ck")
