@@ -14,7 +14,8 @@ func _on_transcribed(t: String) -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
+	self.text = Stt.listeningtxt
 	#pass
 	#if Input.is_action_pressed("ui_accept"):
 		

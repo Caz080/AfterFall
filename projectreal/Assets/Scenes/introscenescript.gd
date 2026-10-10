@@ -7,7 +7,7 @@ func _ready() -> void:
 	var text = get_node("CanvasLayer/VBoxContainer")
 	
 	text.fade_in_children()
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(8.0).timeout
 	fade_in()
 	
 	get_tree().change_scene_to_file("res://Assets/Scenes/game.tscn")
