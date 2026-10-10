@@ -60,20 +60,25 @@ environment = SubResource("Environment_n7mev")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=260341296]
 transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 25, 0, 3.55, 0)
 material_override = SubResource("StandardMaterial3D_tpq0m")
+metadata/_edit_lock_ = true
 
 [node name="OuterBox" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1529281958]
+metadata/_edit_lock_ = true
 
 [node name="InnerBox" type="CSGBox3D" parent="CSGCombiner3D" unique_id=969245445]
 operation = 2
 size = Vector3(0.95, 0.95, 0.95)
+metadata/_edit_lock_ = true
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=108490008]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_4kutc")
+metadata/_edit_lock_ = true
 
 [node name="Table" type="MeshInstance3D" parent="." unique_id=911669620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 mesh = SubResource("CylinderMesh_4kutc")
+metadata/_edit_lock_ = true
 
 [node name="tableSprite" type="Sprite3D" parent="Table" unique_id=1810472771]
 transform = Transform3D(0.31, 0, 0, 0, -1.35505305e-08, -0.31, 0, 0.31, -1.35505305e-08, 0, 0.151, 0)
