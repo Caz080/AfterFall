@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://clvd4ns1v0xwi" path="res://Assets/Sprites/Sprite-dialoguebox.png" id="6_fw1vi"]
 [ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="6_tpq0m"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
+[ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
+[ext_resource type="Script" uid="uid://b3erpkbpt4hpf" path="res://Assets/Scenes/gamefadescript.gd" id="10_xf01c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
 sky_top_color = Color(0.40601015, 0.40465045, 0.30130795, 1)
@@ -125,9 +127,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -350.0
-offset_top = -130.0
+offset_top = -167.98499
 offset_right = 350.0
-offset_bottom = -30.0
+offset_bottom = -67.984985
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("7_fw1vi")
@@ -144,7 +146,7 @@ offset_right = -27.0
 offset_bottom = -19.005005
 grow_horizontal = 2
 grow_vertical = 2
-text = "Testy testy"
+text = "Waiting..."
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_tpq0m")
@@ -193,9 +195,9 @@ offset_top = 10.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 18
 
 [node name="VBoxContainer" type="VBoxContainer" parent="gameUI/Control/MarginContainer" unique_id=1542628420]
@@ -203,14 +205,27 @@ layout_mode = 2
 
 [node name="Person" type="Label" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=1975478449]
 layout_mode = 2
-text = "Person 1"
+theme_override_colors/font_color = Color(0.3372549, 0.62352943, 0.99607843, 1)
+theme_override_font_sizes/font_size = 20
+text = "---"
 
 [node name="Dialogue" type="RichTextLabel" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=451130029]
 custom_minimum_size = Vector2(0, 85.33)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Test"
+text = "---"
 script = ExtResource("5_fw1vi")
+
+[node name="TextureRect2" type="TextureRect" parent="gameUI" unique_id=1099410730]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_4ao11")
+script = ExtResource("10_xf01c")
 
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)

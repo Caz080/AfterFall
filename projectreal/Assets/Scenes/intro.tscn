@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bw8kt6qv1e3dc"]
+
+[ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="1_4yfw4"]
+[ext_resource type="Script" uid="uid://dwh47bq5npimt" path="res://Assets/Scenes/introscenescript.gd" id="1_ea2my"]
+[ext_resource type="Script" uid="uid://cduxplj3racco" path="res://Assets/Scenes/introtextanim.gd" id="2_4yfw4"]
+
+[node name="Intro" type="Node2D" unique_id=1855499653]
+script = ExtResource("1_ea2my")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1289520438]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1810923830]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4yfw4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=110360464]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4yfw4")
+
+[node name="L1" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=492508028]
+custom_minimum_size = Vector2(0, 81.255)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "A metor has crashed "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L2" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=209578336]
+custom_minimum_size = Vector2(0, 81.255)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "6 survivors were found"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L3" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=1942887643]
+custom_minimum_size = Vector2(0, 81.255)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Among them is 1 alien"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L4" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=1572160174]
+custom_minimum_size = Vector2(0, 81.255)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Interrogate them, find the truth..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L5" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=841239213]
+custom_minimum_size = Vector2(0, 81.255)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Detective..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=946414395]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4yfw4")
