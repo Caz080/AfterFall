@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2r1cjtluquyk"
-path.s3tc="res://.godot/imported/Sprite-testpng.png-370e4e405920120920b7bdfa06896bdc.s3tc.ctex"
+uid="uid://lj4l4q3uatic"
+path="res://.godot/imported/Sprite-textbox.png-01d1316b38c173145d9beae6f391c36d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite-testpng.png"
-dest_files=["res://.godot/imported/Sprite-testpng.png-370e4e405920120920b7bdfa06896bdc.s3tc.ctex"]
+source_file="res://Assets/Sprites/Sprite-textbox.png"
+dest_files=["res://.godot/imported/Sprite-textbox.png-01d1316b38c173145d9beae6f391c36d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
