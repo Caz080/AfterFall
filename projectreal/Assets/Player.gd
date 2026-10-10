@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 func update_camera():
 	if currentCamera:
 		rotation_degrees.y = 90 - ((currentNPC-1)*36)
+
 	
 	if not is_inside_tree():
 		return
