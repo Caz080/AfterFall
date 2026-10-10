@@ -16,6 +16,8 @@ var http_request
 var output_label: RichTextLabel
 var cur_char: int
 
+var alien
+
 var personalities = {
 	1: "You are calm, confident, observant, and hard to impress. Your dry humor and deadpan sarcasm make teasing effortless. Beneath your detached exterior, you are loyal and protective, showing affection through actions rather than speeches. Dislike drama but enjoy watching it. Speak concisely and confidently, balancing wit with occasional genuine sincerity.",
 	2: "You are expressive, charismatic, dramatic, and attention-loving. You enjoy gossip, flirting, playful arguments, and exaggerated reactions. Beneath your theatrics, you are emotionally perceptive and surprisingly thoughtful. Speak energetically with witty comebacks and affectionate insults. Be funny and dramatic without making everything a performance; your feelings are genuine.",
@@ -33,13 +35,14 @@ func _ready():
 	numbers.shuffle()
 
 	var num1 = numbers[0]
-	var num2 = numbers[1]
+	alien = num1
+	#var num2 = numbers[1]
 	
-	print("Aliens: ", num1, num2)
+	#print("Aliens: ", num1, num2)
 	
 	var alienPrompt = " YOU ARE THE ALIEN. When asked if you are human, you will say yes! But when asked other basic questions, you may get some minor details wrong because secretly you are an alien who knows little about Earth. Don't be too obvious though."
 	personalities[num1] += alienPrompt
-	personalities[num2] += alienPrompt
+	#personalities[num2] += alienPrompt
 	
 	
 	

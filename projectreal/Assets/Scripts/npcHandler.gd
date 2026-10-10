@@ -11,7 +11,7 @@ func _ready() -> void:
 	firstName = Global.firstNames.pick_random()
 	lastName = Global.lastNames.pick_random()
 	personalityInt = randi_range(1, 6)
-	print(name + ": " + firstName + " " + lastName + ", personality: " + var_to_str(personalityInt))
+	#print(name + ": " + firstName + " " + lastName + ", personality: " + var_to_str(personalityInt))
 	
 	Hairs.pick_random().visible = true
 

@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
 [ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="9_yhnra"]
 [ext_resource type="Script" uid="uid://b3erpkbpt4hpf" path="res://Assets/Scenes/gamefadescript.gd" id="10_xf01c"]
+[ext_resource type="Texture2D" uid="uid://cs0m2cw7qtdrd" path="res://Assets/Sprites/Sprite-arrow-right.png" id="11_xf01c"]
+[ext_resource type="Script" uid="uid://i26i8ofbvo33" path="res://Assets/Scenes/guess_btn.gd" id="12_nvds3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
 sky_top_color = Color(0.40601015, 0.40465045, 0.30130795, 1)
@@ -233,6 +235,35 @@ grow_vertical = 2
 texture = ExtResource("9_4ao11")
 script = ExtResource("10_xf01c")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="gameUI" unique_id=2103881938]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="guessBtn" type="TextureButton" parent="gameUI" unique_id=391228713]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 187.0
+offset_right = -64.0
+offset_bottom = 314.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("11_xf01c")
+stretch_mode = 0
+script = ExtResource("12_nvds3")
+
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
 currentCamera = NodePath("Offset/MainCamera")
@@ -247,54 +278,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
 [node name="Node2D" type="Node2D" parent="Player/Node2D" unique_id=2012874666]
 
 [node name="Camera2D" type="Camera2D" parent="Player/Node2D/Node2D" unique_id=294524051]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Node2D/Node2D" unique_id=564631237]
-visible = false
-
-[node name="Control2" type="Control" parent="Player/Node2D/Node2D/CanvasLayer" unique_id=573322764]
-visible = false
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -142.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1997412296]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1577500004]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -62.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer" unique_id=1351576184]
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=521858946]
-layout_mode = 2
-editable = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=2145271708]
-texture = ExtResource("7_fw1vi")
-centered = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1616499183]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5229225, 0)

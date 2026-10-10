@@ -7,10 +7,11 @@ func _ready():
 func _on_transcribed(t: String) -> void:
 	text = t
 	#caret_column = text.length()
-	print(t)
-	var person = 1
+	#print(t)
+	var person = get_node("../../../Player")
 	var textbox = get_node("../../Control/MarginContainer/VBoxContainer/Dialogue")
-	HttpManager.ask_question(t, person, textbox)
+	HttpManager.ask_question(t, person.currentNPC, textbox)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

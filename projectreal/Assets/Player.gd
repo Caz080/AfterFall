@@ -4,6 +4,7 @@ extends Node3D
 @onready var moveRightButton = $UI/moveRightButton
 
 @export var currentCamera: Camera3D
+var active = true
 
 @export var currentNPC: int = 1:
 	set(new_val):
@@ -14,6 +15,7 @@ extends Node3D
 				new_val = 1
 			currentNPC = new_val
 			update_camera()
+			show_name()
 
 var rotation_dur: float = 0.4
 var camTween: Tween
@@ -22,15 +24,17 @@ var camTween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	show_name()
 	update_camera()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_left"):
-		currentNPC -= 1
-	elif Input.is_action_just_pressed("move_right"):
-		currentNPC += 1
+	if active:
+		if Input.is_action_just_pressed("move_left"):
+			currentNPC -= 1
+		elif Input.is_action_just_pressed("move_right"):
+			currentNPC += 1
 
 func update_camera():
 	if currentCamera:
@@ -70,8 +74,16 @@ func _apply_rotation(weight: float, start: float, target: float) -> void:
 	rotation_degrees.y = lerp(start, target, weight)
 
 func _on_move_right_button_pressed() -> void:
+	if not active: return
 	currentNPC += 1
 
-
 func _on_move_left_button_pressed() -> void:
+	if not active: return
 	currentNPC -= 1
+	
+	
+func show_name():
+	
+	var personname = get_node("../gameUI/Control/MarginContainer/VBoxContainer/Person")
+	var npc = get_node("../NPC_"+str(currentNPC))
+	personname.text = npc.firstName + " " + npc.lastName
