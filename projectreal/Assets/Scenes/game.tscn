@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://dsoc0m1ywrfj2" path="res://Assets/Scripts/gameHandler.gd" id="1_nbu75"]
 [ext_resource type="PackedScene" uid="uid://0top1llg5dn" path="res://Assets/npc_model.tscn" id="2_lcp10"]
 [ext_resource type="PackedScene" uid="uid://co3mlqsngtq0" path="res://Assets/Player.tscn" id="2_pfbgl"]
+[ext_resource type="Texture2D" uid="uid://dwv1lhodrc2p7" path="res://icon.svg" id="4_of3jj"]
 [ext_resource type="Shader" uid="uid://drf1xmg6e2cik" path="res://Assets/Shaders/Pixel.gdshader" id="4_pb48a"]
+[ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="5_fw1vi"]
+[ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="6_tpq0m"]
+[ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfbgl"]
 sky_top_color = Color(0.40601015, 0.40465045, 0.30130795, 1)
@@ -79,11 +83,66 @@ mesh = SubResource("CylinderMesh_4kutc")
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
 currentCamera = NodePath("Offset/MainCamera")
+currentNPC = 5
 
 [node name="Offset" type="Node3D" parent="Player" unique_id=1089858579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
 
 [node name="MainCamera" type="Camera3D" parent="Player/Offset" unique_id=841100218]
+
+[node name="Node2D" type="Node2D" parent="Player" unique_id=1387400898]
+
+[node name="Node2D" type="Node2D" parent="Player/Node2D" unique_id=2012874666]
+
+[node name="Camera2D" type="Camera2D" parent="Player/Node2D/Node2D" unique_id=294524051]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Node2D/Node2D" unique_id=564631237]
+visible = false
+
+[node name="Control2" type="Control" parent="Player/Node2D/Node2D/CanvasLayer" unique_id=573322764]
+visible = false
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1997412296]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2" unique_id=1577500004]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer" unique_id=1351576184]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=521858946]
+layout_mode = 2
+editable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=2145271708]
+texture = ExtResource("7_fw1vi")
+centered = false
 
 [node name="Shader" type="ColorRect" parent="." unique_id=2028533094]
 visible = false
@@ -98,3 +157,99 @@ grow_vertical = 2
 
 [node name="Node3D2" type="Node3D" parent="Node3D" unique_id=152608839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1139144664]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=478212007]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -188.995
+offset_right = 350.0
+offset_bottom = -88.994995
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_fw1vi")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect" unique_id=1476721055]
+custom_maximum_size = Vector2(700, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 25.994995
+offset_right = -27.0
+offset_bottom = -19.005005
+grow_horizontal = 2
+grow_vertical = 2
+text = "Testy testy"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_tpq0m")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureRect" unique_id=966738129]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 14.915001
+offset_right = 10.0
+offset_bottom = 37.915085
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hold space to ask question"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1206419169]
+custom_maximum_size = Vector2(700, 150)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 290.0
+offset_top = 45.0
+offset_right = -290.0
+offset_bottom = 195.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=122913434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_of3jj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=2089184169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1542628420]
+layout_mode = 2
+
+[node name="Person" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1975478449]
+layout_mode = 2
+text = "Person 1"
+
+[node name="Dialogue" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=451130029]
+custom_minimum_size = Vector2(0, 85.33)
+layout_mode = 2
+bbcode_enabled = true
+text = "Test"
+script = ExtResource("5_fw1vi")
