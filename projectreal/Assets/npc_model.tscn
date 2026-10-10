@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://0top1llg5dn"]
 
 [ext_resource type="Script" uid="uid://cowlmlchaomq8" path="res://Assets/Scripts/npcHandler.gd" id="1_rdagg"]
+[ext_resource type="Texture2D" uid="uid://2r1cjtluquyk" path="res://Assets/Sprite-testpng.png" id="2_kqdkm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kutc"]
+transparency = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_4kutc"]
+size = Vector2(1, 2)
+center_offset = Vector3(0, 1, 0)
 
 [node name="NPCModel" type="Node3D" unique_id=718934892]
 script = ExtResource("1_rdagg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1466718180]
+material_override = SubResource("StandardMaterial3D_4kutc")
+transparency = 1.0
+mesh = SubResource("QuadMesh_4kutc")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1497271126]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0)
+texture = ExtResource("2_kqdkm")
