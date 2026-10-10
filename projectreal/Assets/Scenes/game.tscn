@@ -3,31 +3,38 @@
 [ext_resource type="Script" uid="uid://dsoc0m1ywrfj2" path="res://Assets/Scripts/gameHandler.gd" id="1_nbu75"]
 [ext_resource type="PackedScene" uid="uid://0top1llg5dn" path="res://Assets/npc_model.tscn" id="2_lcp10"]
 [ext_resource type="PackedScene" uid="uid://co3mlqsngtq0" path="res://Assets/Player.tscn" id="2_pfbgl"]
-[ext_resource type="Texture2D" uid="uid://dwv1lhodrc2p7" path="res://icon.svg" id="4_of3jj"]
 [ext_resource type="Shader" uid="uid://drf1xmg6e2cik" path="res://Assets/Shaders/Pixel.gdshader" id="4_pb48a"]
 [ext_resource type="Script" uid="uid://dxs1ltrud5yxp" path="res://text_anim.gd" id="5_fw1vi"]
+[ext_resource type="Texture2D" uid="uid://clvd4ns1v0xwi" path="res://Assets/Sprites/Sprite-dialoguebox.png" id="6_fw1vi"]
 [ext_resource type="Script" uid="uid://6t6x681ktu8" path="res://submitquestion.gd" id="6_tpq0m"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfbgl"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
 sky_top_color = Color(0.40601015, 0.40465045, 0.30130795, 1)
 sky_horizon_color = Color(0.6268463, 0.6187564, 0.58392084, 1)
 ground_horizon_color = Color(0.6268463, 0.6187564, 0.58392084, 1)
 
-[sub_resource type="Sky" id="Sky_lcp10"]
-sky_material = SubResource("ProceduralSkyMaterial_pfbgl")
+[sub_resource type="Sky" id="Sky_tpq0m"]
+sky_material = SubResource("ProceduralSkyMaterial_fw1vi")
 
-[sub_resource type="Environment" id="Environment_pb48a"]
-background_mode = 2
-sky = SubResource("Sky_lcp10")
+[sub_resource type="Environment" id="Environment_n7mev"]
+background_mode = 1
+sky = SubResource("Sky_tpq0m")
+ambient_light_energy = 0.0
 glow_enabled = true
+fog_light_color = Color(0.716318, 0.49574214, 0.29453328, 1)
+volumetric_fog_density = 0.2153
+volumetric_fog_albedo = Color(0.37109566, 0.22851092, 0.041652136, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpq0m"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbu75"]
 albedo_color = Color(0.33788916, 0.63171077, 0.33419406, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_4kutc"]
 material = SubResource("StandardMaterial3D_nbu75")
-size = Vector2(10, 10)
+size = Vector2(25, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfbgl"]
 albedo_color = Color(0.74641854, 0.47252178, 0.36837062, 1)
@@ -45,6 +52,27 @@ shader_parameter/pixel_size = 4.0
 [node name="game" type="Node3D" unique_id=799005964 node_paths=PackedStringArray("currentPlayer")]
 script = ExtResource("1_nbu75")
 currentPlayer = NodePath("Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1985300914]
+environment = SubResource("Environment_n7mev")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=260341296]
+transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 25, 0, 3.55, 0)
+material_override = SubResource("StandardMaterial3D_tpq0m")
+
+[node name="OuterBox" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1529281958]
+
+[node name="InnerBox" type="CSGBox3D" parent="CSGCombiner3D" unique_id=969245445]
+operation = 2
+size = Vector3(0.95, 0.95, 0.95)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=108490008]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_4kutc")
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=911669620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("CylinderMesh_4kutc")
 
 [node name="NPC_5" parent="." unique_id=246952568 instance=ExtResource("2_lcp10")]
 transform = Transform3D(0.58778524, 0, -0.80901706, 0, 1, 0, 0.80901706, 0, 0.58778524, 1.4157798, -0.714, -1.028624)
@@ -64,30 +92,14 @@ transform = Transform3D(0.5877852, 0, 0.809017, 0, 1, 0, -0.809017, 0, 0.5877852
 [node name="NPC_1" parent="." unique_id=1528442881 instance=ExtResource("2_lcp10")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.75, -0.714, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=305657008]
-environment = SubResource("Environment_pb48a")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1919229276]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(0.9148778, 0.611044, 0.2176998, 1)
-shadow_enabled = true
-
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=108490008]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_4kutc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=911669620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-mesh = SubResource("CylinderMesh_4kutc")
-
 [node name="Node3D" type="Node3D" parent="." unique_id=475442941]
 
 [node name="Node3D2" type="Node3D" parent="Node3D" unique_id=152608839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1139144664]
+[node name="gameUI" type="CanvasLayer" parent="." unique_id=1139144664]
 
-[node name="Shader" type="ColorRect" parent="CanvasLayer" unique_id=2028533094]
+[node name="Shader" type="ColorRect" parent="gameUI" unique_id=2028533094]
 material = SubResource("ShaderMaterial_fw1vi")
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,21 +107,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=478212007]
+[node name="TextureRect" type="TextureRect" parent="gameUI" unique_id=478212007]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -350.0
-offset_top = -188.995
+offset_top = -130.0
 offset_right = 350.0
-offset_bottom = -88.994995
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("7_fw1vi")
 
-[node name="Label" type="Label" parent="CanvasLayer/TextureRect" unique_id=1476721055]
+[node name="Label" type="Label" parent="gameUI/TextureRect" unique_id=1476721055]
 custom_maximum_size = Vector2(700, 400)
 layout_mode = 1
 anchors_preset = 15
@@ -126,22 +138,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_tpq0m")
 
-[node name="Label2" type="Label" parent="CanvasLayer/TextureRect" unique_id=966738129]
+[node name="Label2" type="Label" parent="gameUI/TextureRect" unique_id=966738129]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 14.915001
+offset_top = 2.5
 offset_right = 10.0
-offset_bottom = 37.915085
+offset_bottom = 25.500092
 grow_horizontal = 2
 grow_vertical = 0
 text = "Hold space to ask question"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1206419169]
+[node name="Control" type="Control" parent="gameUI" unique_id=1206419169]
 custom_maximum_size = Vector2(700, 150)
 layout_mode = 3
 anchors_preset = 10
@@ -152,16 +164,16 @@ offset_right = -290.0
 offset_bottom = 195.0
 grow_horizontal = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=122913434]
+[node name="NinePatchRect" type="NinePatchRect" parent="gameUI/Control" unique_id=122913434]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_of3jj")
+texture = ExtResource("6_fw1vi")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=2089184169]
+[node name="MarginContainer" type="MarginContainer" parent="gameUI/Control" unique_id=2089184169]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,14 +187,14 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 18
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1542628420]
+[node name="VBoxContainer" type="VBoxContainer" parent="gameUI/Control/MarginContainer" unique_id=1542628420]
 layout_mode = 2
 
-[node name="Person" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1975478449]
+[node name="Person" type="Label" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=1975478449]
 layout_mode = 2
 text = "Person 1"
 
-[node name="Dialogue" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=451130029]
+[node name="Dialogue" type="RichTextLabel" parent="gameUI/Control/MarginContainer/VBoxContainer" unique_id=451130029]
 custom_minimum_size = Vector2(0, 85.33)
 layout_mode = 2
 bbcode_enabled = true
@@ -251,3 +263,10 @@ editable = false
 [node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Node2D/CanvasLayer/Control2/MarginContainer/VBoxContainer" unique_id=2145271708]
 texture = ExtResource("7_fw1vi")
 centered = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1616499183]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5229225, 0)
+light_color = Color(0.87261486, 0.42646247, 0.13746002, 1)
+light_energy = 2.206
+spot_range = 11.905716
+spot_angle = 59.02622
