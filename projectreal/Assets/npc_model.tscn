@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://0top1llg5dn"]
+
+[ext_resource type="Script" uid="uid://cowlmlchaomq8" path="res://Assets/Scripts/npcHandler.gd" id="1_rdagg"]
+
+[node name="NPCModel" type="Node3D" unique_id=718934892]
+script = ExtResource("1_rdagg")

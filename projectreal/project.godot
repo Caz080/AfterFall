@@ -12,12 +12,14 @@ config_version=5
 
 config/name="hackixreal"
 run/main_scene="uid://xu7vkpqph630"
+run/main_scene="uid://bwuhginvmsntu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 HttpManager="*uid://cmhpdxjvr3lbn"
+Global="*uid://uki3val6uu7a"
 
 [display]
 
