@@ -1,9 +1,9 @@
 extends Node
 
 var secrets = ConfigFile.new()
-var err = secrets.load("res://secrets.cfg")
+var err = secrets.load("user://secrets.cfg")
 
-var voicekey = secrets.get_value("api","elevenlabs_key","")
+var voicekey = secrets.get_value("keys","elevenlabs_key","")
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
