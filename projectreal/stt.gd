@@ -10,7 +10,7 @@ const MODEL_ID := "scribe_v1"
 var listeningtxt = "Waiting..."
 
 var secrets = ConfigFile.new()
-var err = secrets.load("res://secrets.cfg")
+var err = secrets.load("usr://secrets.cfg")
 var voicekey = secrets.get_value("api","elevenlabs_key","")
 
 signal transcribed(text: String)

@@ -3,7 +3,7 @@ extends Node2D
 @onready var tts = get_node("TTS")
 
 var secrets = ConfigFile.new()
-var err = secrets.load("res://secrets.cfg")
+var err = secrets.load("usr://secrets.cfg")
 
 var key = secrets.get_value("api","gemini_key","")
 
