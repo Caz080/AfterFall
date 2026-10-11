@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyfub526i12yf"
 path.s3tc="res://.godot/imported/Sprite-Hair-5-Base.png-ee8943d0f342f4aad8c7a54f661ce55a.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-Hair-5-Base.png-ee8943d0f342f4aad8c7a54f661ce55a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Hairs/Sprite-Hair-5-Base.png"
-dest_files=["res://.godot/imported/Sprite-Hair-5-Base.png-ee8943d0f342f4aad8c7a54f661ce55a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-Hair-5-Base.png-ee8943d0f342f4aad8c7a54f661ce55a.s3tc.ctex", "res://.godot/imported/Sprite-Hair-5-Base.png-ee8943d0f342f4aad8c7a54f661ce55a.etc2.ctex"]
 
 [params]
 

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="4_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://bnb53h6nnr2pd" path="res://Assets/Sprites/playbutton.png" id="5_acsc0"]
 [ext_resource type="Texture2D" uid="uid://bga8hlbfpr55w" path="res://Assets/Sprites/playbuttonhover.png" id="7_4357x"]
+[ext_resource type="AudioStream" uid="uid://gvko3g2nqhiu" path="res://Assets/Sounds/button_click.mp3" id="10_f1jyc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nacht"]
 
@@ -150,5 +151,8 @@ theme_override_font_sizes/font_size = 30
 text = "Updated!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=1448066430]
+stream = ExtResource("10_f1jyc")
 
 [connection signal="pressed" from="playBtn" to="." method="playBtn"]

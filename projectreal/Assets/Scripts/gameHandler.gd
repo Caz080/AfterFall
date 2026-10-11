@@ -40,6 +40,7 @@ func _on_transcribed(t: String) -> void:
 	HttpManager.ask_question(t, currentPlayer.currentNPC, textbox)
 
 func _on_guess_btn_pressed() -> void:
+	if not currentPlayer.active: return
 	$gameUI/Control.visible = false
 	$gameUI/guessBtn.visible = false
 	$gameUI/TextureRect.visible = false

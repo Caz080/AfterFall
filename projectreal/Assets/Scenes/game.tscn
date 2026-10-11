@@ -383,29 +383,29 @@ volume_db = 20.0
 
 [node name="shootAudio" type="AudioStreamPlayer" parent="." unique_id=1664478460]
 stream = ExtResource("14_sqxpa")
-volume_db = 5.0
+volume_db = 2.5
 pitch_scale = 1.5
 
 [node name="buildupAudio" type="AudioStreamPlayer" parent="." unique_id=1185412878]
 stream = ExtResource("14_yhnra")
-volume_db = 10.0
+volume_db = 7.5
 pitch_scale = 0.5
 
 [node name="cutAudio" type="AudioStreamPlayer" parent="." unique_id=2004455643]
 stream = ExtResource("16_sqxpa")
-volume_db = 10.0
+volume_db = 7.5
 pitch_scale = 0.5
 
 [node name="clockBg" type="AudioStreamPlayer" parent="." unique_id=328375977]
 stream = ExtResource("15_wknnu")
-volume_db = 5.0
+volume_db = 2.5
 autoplay = true
 
 [node name="scarystringsfx" type="AudioStreamPlayer" parent="." unique_id=1700821661]
 stream = ExtResource("16_g77ca")
-volume_db = 15.0
+volume_db = 7.5
 
 [node name="screamSfx" type="AudioStreamPlayer" parent="." unique_id=886696690]
 stream = ExtResource("17_p7xq5")
-volume_db = 10.0
+volume_db = 7.5
 pitch_scale = 0.5
