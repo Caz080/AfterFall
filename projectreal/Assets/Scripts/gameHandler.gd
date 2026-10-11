@@ -35,6 +35,7 @@ func _on_transcribed(t: String) -> void:
 	HttpManager.ask_question(t, currentPlayer.currentNPC, textbox)
 
 func _on_guess_btn_pressed() -> void:
+	$Player/Offset/MainCamera/buttonAudio.play()
 	currentPlayer.active = false
 	print("test")
 	

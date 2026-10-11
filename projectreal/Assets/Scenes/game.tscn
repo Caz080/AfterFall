@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
 [ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="9_yhnra"]
 [ext_resource type="Texture2D" uid="uid://cs0m2cw7qtdrd" path="res://Assets/Sprites/Sprite-arrow-right.png" id="11_xf01c"]
+[ext_resource type="AudioStream" uid="uid://chj60m15xjg6s" path="res://Assets/Sounds/button_click2.mp3" id="13_nvds3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
 sky_top_color = Color(0.40601015, 0.40465045, 0.30130795, 1)
@@ -227,10 +228,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("9_yhnra")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "
-"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -243,6 +243,7 @@ texture_normal = ExtResource("11_xf01c")
 stretch_mode = 0
 
 [node name="BlackFade" type="TextureRect" parent="gameUI" unique_id=1099410730]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -250,14 +251,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_4ao11")
 
-[node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
+[node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera", "a") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
 currentCamera = NodePath("Offset/MainCamera")
+a = NodePath("Offset/MainCamera/buttonAudio")
 
 [node name="Offset" type="Node3D" parent="Player" unique_id=1089858579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
 
 [node name="MainCamera" type="Camera3D" parent="Player/Offset" unique_id=841100218]
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="Player/Offset/MainCamera" unique_id=1947140305]
+stream = ExtResource("13_nvds3")
 
 [node name="Node2D" type="Node2D" parent="Player" unique_id=1387400898]
 

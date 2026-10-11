@@ -5,6 +5,7 @@ extends Node3D
 
 @export var currentCamera: Camera3D
 var active = true
+@export var a: AudioStreamPlayer
 
 @export var currentNPC: int = 1:
 	set(new_val):
@@ -14,6 +15,7 @@ var active = true
 			elif new_val < 1:
 				new_val = 1
 			currentNPC = new_val
+			a.play()
 			update_camera()
 			show_name()
 
