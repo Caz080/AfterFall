@@ -322,7 +322,7 @@ pitch_scale = 0.5
 
 [node name="clockBg" type="AudioStreamPlayer" parent="." unique_id=328375977]
 stream = ExtResource("15_wknnu")
-volume_db = 10.0
+volume_db = 5.0
 autoplay = true
 
 [node name="scarystringsfx" type="AudioStreamPlayer" parent="." unique_id=1700821661]

@@ -3,7 +3,7 @@ extends Control
 @onready var gameScene = preload("res://Assets/Scenes/game.tscn")
 @onready var introScene = preload("res://Assets/Scenes/intro.tscn")
 
-@onready var updatedTxt: Label = $Label
+@onready var updatedTxt: Label = $updateNotifier
 
 @onready var gemLine: LineEdit = $GeminiKey/LineEdit
 @onready var labLine: LineEdit = $ElevenLabKey/LineEdit

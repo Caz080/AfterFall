@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://ci0k8qfqx2eem"]
 
+[ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="1_l26l0"]
 [ext_resource type="Script" uid="uid://bh4gsv8heeoy5" path="res://Assets/Scenes/titleScreenScript.gd" id="1_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="2_qplxx"]
 [ext_resource type="FontFile" uid="uid://dujgi3xr0q1uh" path="res://Assets/Fonts/Slender by Simoncho Design.ttf" id="2_rvsrt"]
-[ext_resource type="Texture2D" uid="uid://dyxm70jf5wai" path="res://Assets/Sprites/Sprite-arrow-left.png" id="3_guoxd"]
+[ext_resource type="FontFile" uid="uid://clp4rnceqgjkk" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="4_acsc0"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="4_rvsrt"]
+[ext_resource type="Texture2D" uid="uid://bnb53h6nnr2pd" path="res://Assets/Sprites/playbutton.png" id="5_acsc0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nacht"]
 
@@ -58,8 +60,9 @@ offset_right = -382.0
 offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_acsc0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nacht")
-placeholder_text = "Type Gemini API key here"
+placeholder_text = "Type Gemini API key here and press Enter"
 alignment = 1
 
 [node name="ElevenLabKey" type="Sprite2D" parent="." unique_id=961137167]
@@ -77,17 +80,45 @@ offset_right = -384.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_acsc0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nacht")
-placeholder_text = "Type Eleven Labs API key here"
+placeholder_text = "Type Eleven Labs API key here and press Enter"
 alignment = 1
 
 [node name="playBtn" type="TextureButton" parent="." unique_id=1163797202]
-layout_mode = 0
-offset_left = 456.0
-offset_top = 281.0
-offset_right = 864.0
-offset_bottom = 371.0
-texture_normal = ExtResource("3_guoxd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -51.0
+offset_right = 164.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_acsc0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="playBtn" unique_id=786948941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -39.0
+offset_right = 89.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42886665, 0.23675045, 0.13252011, 1)
+theme_override_fonts/font = ExtResource("1_l26l0")
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2005697485]
 visible = false
@@ -99,13 +130,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qplxx")
 
-[node name="Label" type="Label" parent="." unique_id=370873828]
+[node name="updateNotifier" type="Label" parent="." unique_id=370873828]
 visible = false
 layout_mode = 0
 offset_left = 488.0
-offset_top = 427.0
+offset_top = 407.0
 offset_right = 826.0
 offset_bottom = 454.0
+theme_override_fonts/font = ExtResource("1_l26l0")
+theme_override_font_sizes/font_size = 30
 text = "Updated!"
 horizontal_alignment = 1
 vertical_alignment = 1
