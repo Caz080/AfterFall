@@ -5,13 +5,13 @@ extends RichTextLabel
 @export var charspersec := 40.0
 var _typing := false
 
-func typeText(text: String):
+func typeText(ctext: String):
 	var curnpc = plr.currentNPC
 	visible_characters = 0
 	_typing = true
-	self.text = "[wave amp=20 freq=5]"+text+"[/wave]"
-	var total := text.length()
-	while visible_characters < total or plr.currentNPC != curnpc or get_parsed_text() == "":
+	self.text = "[wave amp=20 freq=5]"+ctext+"[/wave]"
+	var total := ctext.length()
+	while visible_characters < total and plr.currentNPC == curnpc and get_parsed_text() != "":
 		visible_characters+=1
 		if get_parsed_text() == "": break
 		var c := get_parsed_text()[visible_characters-1]

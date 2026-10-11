@@ -43,11 +43,11 @@ func _ensure_secrets_file():
 	var has_defaults := defaults.load(RES_PATH) == OK
 
 	var cfg := ConfigFile.new()
-	for name in KEY_NAMES:
+	for cname in KEY_NAMES:
 		var value := ""
 		if has_defaults:
-			value = str(defaults.get_value("api", name, ""))
-		cfg.set_value("keys", name, value)
+			value = str(defaults.get_value("api", cname, ""))
+		cfg.set_value("keys", cname, value)
 
 	var err := cfg.save(USER_PATH)
 	if err != OK:
@@ -56,23 +56,23 @@ func _ensure_secrets_file():
 func _load_keys() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(USER_PATH) != OK:
-		for name in KEY_NAMES:
-			keys[name] = ""
+		for cname in KEY_NAMES:
+			keys[cname] = ""
 		return
-	for name in KEY_NAMES:
-		keys[name] = str(cfg.get_value("keys", name, ""))	
+	for cname in KEY_NAMES:
+		keys[cname] = str(cfg.get_value("keys", cname, ""))	
 
-func get_key(name: String) -> String:
-	return keys.get(name, "")
+func get_key(cname: String) -> String:
+	return keys.get(cname, "")
 	
-func set_key(name: String, value: String) -> void:
+func set_key(cname: String, value: String) -> void:
 	value = value.strip_edges()
-	keys[name] = value
+	keys[cname] = value
 	var cfg := ConfigFile.new()
 	cfg.load(USER_PATH)
 	var load_err := cfg.load(USER_PATH)
 	print("load: ", load_err)
-	cfg.set_value("keys", name, value)
+	cfg.set_value("keys", cname, value)
 	cfg.save(USER_PATH)
 	var err := cfg.save(USER_PATH)
 	print("save: ", err, " -> ", ProjectSettings.globalize_path(USER_PATH))

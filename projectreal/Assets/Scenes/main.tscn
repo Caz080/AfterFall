@@ -2,11 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="1_l26l0"]
 [ext_resource type="Script" uid="uid://bh4gsv8heeoy5" path="res://Assets/Scenes/titleScreenScript.gd" id="1_rvsrt"]
+[ext_resource type="Texture2D" uid="uid://dkvgkl6qlpduh" path="res://Assets/Sprites/Sprite-Earth.png" id="2_f8o6k"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="2_qplxx"]
 [ext_resource type="FontFile" uid="uid://dujgi3xr0q1uh" path="res://Assets/Fonts/Slender by Simoncho Design.ttf" id="2_rvsrt"]
 [ext_resource type="FontFile" uid="uid://clp4rnceqgjkk" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="4_acsc0"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="4_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://bnb53h6nnr2pd" path="res://Assets/Sprites/playbutton.png" id="5_acsc0"]
+[ext_resource type="Texture2D" uid="uid://bga8hlbfpr55w" path="res://Assets/Sprites/playbuttonhover.png" id="7_4357x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nacht"]
 
@@ -28,15 +30,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.04203315, 0.084174566, 0.1061387, 1)
 
+[node name="SpriteEarth" type="Sprite2D" parent="." unique_id=2101663491]
+position = Vector2(641, 876)
+scale = Vector2(2.07, 2.07)
+texture = ExtResource("2_f8o6k")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1422077399]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -569.0
-offset_top = 36.0
-offset_right = 569.0
-offset_bottom = 259.0
+offset_left = -566.0
+offset_top = 9.0
+offset_right = 572.0
+offset_bottom = 232.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_rvsrt")
 theme_override_font_sizes/normal_font_size = 150
@@ -46,7 +53,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeminiKey" type="Sprite2D" parent="." unique_id=1694498176]
-position = Vector2(665, 513)
+position = Vector2(660, 274)
 texture = ExtResource("4_rvsrt")
 
 [node name="LineEdit" type="LineEdit" parent="GeminiKey" unique_id=196484866]
@@ -66,7 +73,7 @@ placeholder_text = "Type Gemini API key here and press Enter"
 alignment = 1
 
 [node name="ElevenLabKey" type="Sprite2D" parent="." unique_id=961137167]
-position = Vector2(660, 626)
+position = Vector2(660, 373)
 texture = ExtResource("4_rvsrt")
 
 [node name="LineEdit" type="LineEdit" parent="ElevenLabKey" unique_id=843769624]
@@ -92,13 +99,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
-offset_top = -51.0
-offset_right = 164.0
-offset_bottom = 51.0
+offset_left = -335.0
+offset_top = 197.0
+offset_right = 357.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_acsc0")
+texture_pressed = ExtResource("7_4357x")
+texture_hover = ExtResource("7_4357x")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -109,15 +118,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -39.0
-offset_right = 89.0
-offset_bottom = 39.0
+offset_left = -90.0
+offset_top = -24.5
+offset_right = 88.0
+offset_bottom = 35.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.42886665, 0.23675045, 0.13252011, 1)
 theme_override_fonts/font = ExtResource("1_l26l0")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 60
 text = "PLAY"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2005697485]
@@ -131,12 +140,11 @@ grow_vertical = 2
 texture = ExtResource("2_qplxx")
 
 [node name="updateNotifier" type="Label" parent="." unique_id=370873828]
-visible = false
 layout_mode = 0
-offset_left = 488.0
-offset_top = 407.0
-offset_right = 826.0
-offset_bottom = 454.0
+offset_left = 970.0
+offset_top = 299.0
+offset_right = 1308.0
+offset_bottom = 346.0
 theme_override_fonts/font = ExtResource("1_l26l0")
 theme_override_font_sizes/font_size = 30
 text = "Updated!"

@@ -23,8 +23,8 @@ func _ready() -> void:
 	http_request = $HTTPRequest
 	http_request.request_completed.connect(_on_request_completed)
 
-func speak(text: String, char: int):
-	var url = "https://api.elevenlabs.io/v1/text-to-speech/" + voices[char]
+func speak(text: String, charc: int):
+	var url = "https://api.elevenlabs.io/v1/text-to-speech/" + voices[charc]
 	var headers = [
 		"xi-api-key: "+voicekey,
 		"Content-Type: application/json"

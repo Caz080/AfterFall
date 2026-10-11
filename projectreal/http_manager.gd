@@ -54,10 +54,10 @@ func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	self.cur_char = charc
 	
 	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent"
-	var headers = ["content-type: application/json"]
+	var headers = ["content-type: application/json", "x-goog-api-key: " + key]
 	
 	#print("URL: ", url+"?key="+key)
-	var context = "Keep responses under 50 characters, 1-2 sentences. A meterite has landed in a town killing everyone but 6 people, 2 of which are aliens who were on the meterite and disguised themselves as a humans. You are one of the 6 people and are being interogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! Give many specifics unless you are an alien, be slightly more vague. "
+	var context = "Keep responses under 50 characters, 1-2 sentences. A meteor has landed in a town killing everyone but 6 people, 1 of which are aliens who were on the meteor and disguised themselves as a humans. You are one of the 6 people and are being interrogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! Give many specifics unless you are an alien, be slightly more vague. "
 	var body = {
 		"system_instruction": {
 			"parts":[
@@ -70,7 +70,7 @@ func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 			{
 				"parts":[
 					{
-						"text":prompt
+						"text": prompt
 					}
 				]
 			}
@@ -79,7 +79,7 @@ func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	
 	var json_body = JSON.stringify(body)
 	http_request.request(
-		url+"?key="+key,
+		url,
 		headers,
 		HTTPClient.METHOD_POST,
 		json_body
