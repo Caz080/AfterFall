@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpto611eoft4o"
 path.s3tc="res://.godot/imported/Sprite-Alien-Neck.png-9d1129b4f71d7d0bb1afdef00db4cb2a.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-Alien-Neck.png-9d1129b4f71d7d0bb1afdef00db4cb2a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Alien/Sprite-Alien-Neck.png"
-dest_files=["res://.godot/imported/Sprite-Alien-Neck.png-9d1129b4f71d7d0bb1afdef00db4cb2a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-Alien-Neck.png-9d1129b4f71d7d0bb1afdef00db4cb2a.s3tc.ctex", "res://.godot/imported/Sprite-Alien-Neck.png-9d1129b4f71d7d0bb1afdef00db4cb2a.etc2.ctex"]
 
 [params]
 

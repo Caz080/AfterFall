@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5t8tf3g0qliu"
 path.s3tc="res://.godot/imported/Sprite-Regular-Shirt-Base.png-0a00b93eea6b021bf29725ee697a69b8.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-Regular-Shirt-Base.png-0a00b93eea6b021bf29725ee697a69b8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Shirts/Sprite-Regular-Shirt-Base.png"
-dest_files=["res://.godot/imported/Sprite-Regular-Shirt-Base.png-0a00b93eea6b021bf29725ee697a69b8.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-Regular-Shirt-Base.png-0a00b93eea6b021bf29725ee697a69b8.s3tc.ctex", "res://.godot/imported/Sprite-Regular-Shirt-Base.png-0a00b93eea6b021bf29725ee697a69b8.etc2.ctex"]
 
 [params]
 

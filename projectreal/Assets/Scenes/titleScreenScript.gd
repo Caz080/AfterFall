@@ -85,7 +85,9 @@ func _process(delta: float) -> void:
 
 	
 func playBtn():
+	$buttonAudio.play()
 	fade_in()
+	await get_tree().create_timer(1.5).timeout
 	#self.queue_free()
 	#var newIntroScene = introScene.instantiate()
 	#get_tree().change_scene_to_node(newIntroScene)

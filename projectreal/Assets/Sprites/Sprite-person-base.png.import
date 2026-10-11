@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnpj2d03bdgbd"
 path.s3tc="res://.godot/imported/Sprite-person-base.png-7be82464cdc14dc992cfb601ea88912b.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-person-base.png-7be82464cdc14dc992cfb601ea88912b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Sprite-person-base.png"
-dest_files=["res://.godot/imported/Sprite-person-base.png-7be82464cdc14dc992cfb601ea88912b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-person-base.png-7be82464cdc14dc992cfb601ea88912b.s3tc.ctex", "res://.godot/imported/Sprite-person-base.png-7be82464cdc14dc992cfb601ea88912b.etc2.ctex"]
 
 [params]
 

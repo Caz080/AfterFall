@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfgjpmxhd2yns"
 path.s3tc="res://.godot/imported/Sprite-Alien-Torso.png-9607e5a72b0f2b3816f0802c8e00e622.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-Alien-Torso.png-9607e5a72b0f2b3816f0802c8e00e622.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Alien/Sprite-Alien-Torso.png"
-dest_files=["res://.godot/imported/Sprite-Alien-Torso.png-9607e5a72b0f2b3816f0802c8e00e622.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-Alien-Torso.png-9607e5a72b0f2b3816f0802c8e00e622.s3tc.ctex", "res://.godot/imported/Sprite-Alien-Torso.png-9607e5a72b0f2b3816f0802c8e00e622.etc2.ctex"]
 
 [params]
 

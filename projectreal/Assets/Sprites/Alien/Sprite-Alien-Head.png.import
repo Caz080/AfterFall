@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0e40bm3kpenr"
 path.s3tc="res://.godot/imported/Sprite-Alien-Head.png-6fb0a72f74ab8b111480c69a135b1490.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-Alien-Head.png-6fb0a72f74ab8b111480c69a135b1490.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Alien/Sprite-Alien-Head.png"
-dest_files=["res://.godot/imported/Sprite-Alien-Head.png-6fb0a72f74ab8b111480c69a135b1490.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-Alien-Head.png-6fb0a72f74ab8b111480c69a135b1490.s3tc.ctex", "res://.godot/imported/Sprite-Alien-Head.png-6fb0a72f74ab8b111480c69a135b1490.etc2.ctex"]
 
 [params]
 

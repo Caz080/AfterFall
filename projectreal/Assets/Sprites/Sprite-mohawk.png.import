@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlu6xw5s25ku3"
 path.s3tc="res://.godot/imported/Sprite-mohawk.png-b6fb5dcefecd217c341eff2fca3bbd65.s3tc.ctex"
+path.etc2="res://.godot/imported/Sprite-mohawk.png-b6fb5dcefecd217c341eff2fca3bbd65.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Sprite-mohawk.png"
-dest_files=["res://.godot/imported/Sprite-mohawk.png-b6fb5dcefecd217c341eff2fca3bbd65.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sprite-mohawk.png-b6fb5dcefecd217c341eff2fca3bbd65.s3tc.ctex", "res://.godot/imported/Sprite-mohawk.png-b6fb5dcefecd217c341eff2fca3bbd65.etc2.ctex"]
 
 [params]
 
