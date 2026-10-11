@@ -3,6 +3,8 @@ extends Control
 @onready var gameScene = preload("res://Assets/Scenes/game.tscn")
 @onready var introScene = preload("res://Assets/Scenes/intro.tscn")
 
+@onready var updatedTxt: Label = $Label
+
 @onready var gemLine: LineEdit = $GeminiKey/LineEdit
 @onready var labLine: LineEdit = $ElevenLabKey/LineEdit
 
@@ -13,6 +15,7 @@ var keys := {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	updatedTxt.visible = false
 	_ensure_secrets_file()
 	
 	fade_out()
@@ -22,11 +25,15 @@ func _ready() -> void:
 	
 func gemSubmit(txt: String):
 	set_key("gemini_key", txt)
-	return ""
+	updatedTxt.visible = true
+	await get_tree().create_timer(1.0).timeout
+	updatedTxt.visible = false
 	
 func labSubmit(txt: String):
 	set_key("elevenlabs_key", txt)
-	pass
+	updatedTxt.visible = true
+	await get_tree().create_timer(1.0).timeout
+	updatedTxt.visible = false
 
 func _ensure_secrets_file():
 	if FileAccess.file_exists(USER_PATH):
@@ -63,8 +70,12 @@ func set_key(name: String, value: String) -> void:
 	keys[name] = value
 	var cfg := ConfigFile.new()
 	cfg.load(USER_PATH)
+	var load_err := cfg.load(USER_PATH)
+	print("load: ", load_err)
 	cfg.set_value("keys", name, value)
 	cfg.save(USER_PATH)
+	var err := cfg.save(USER_PATH)
+	print("save: ", err, " -> ", ProjectSettings.globalize_path(USER_PATH))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

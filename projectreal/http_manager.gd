@@ -57,7 +57,7 @@ func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	var headers = ["content-type: application/json"]
 	
 	#print("URL: ", url+"?key="+key)
-	var context = "Keep responses under 50 characters, 1-2 sentences. A meterite has landed in a town killing everyone but 6 people, 2 of which are aliens who were on the meterite and disguised themselves as a humans. You are one of the 6 people and are being interogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! "
+	var context = "Keep responses under 50 characters, 1-2 sentences. A meterite has landed in a town killing everyone but 6 people, 2 of which are aliens who were on the meterite and disguised themselves as a humans. You are one of the 6 people and are being interogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! Give many specifics unless you are an alien, be slightly more vague. "
 	var body = {
 		"system_instruction": {
 			"parts":[

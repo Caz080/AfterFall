@@ -90,6 +90,7 @@ offset_bottom = 371.0
 texture_normal = ExtResource("3_guoxd")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2005697485]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,5 +98,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qplxx")
+
+[node name="Label" type="Label" parent="." unique_id=370873828]
+visible = false
+layout_mode = 0
+offset_left = 488.0
+offset_top = 427.0
+offset_right = 826.0
+offset_bottom = 454.0
+text = "Updated!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="playBtn" to="." method="playBtn"]
