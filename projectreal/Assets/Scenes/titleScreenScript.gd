@@ -82,8 +82,6 @@ func _process(delta: float) -> void:
 	pass
 	
 
-
-	
 func playBtn():
 	$buttonAudio.play()
 	fade_in()

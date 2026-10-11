@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.04203315, 0.084174566, 0.1061387, 1)
+color = Color(0.005781094, 0.012988785, 0.019000132, 1)
 
 [node name="SpriteEarth" type="Sprite2D" parent="." unique_id=2101663491]
 position = Vector2(641, 876)
