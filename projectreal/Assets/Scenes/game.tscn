@@ -11,9 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
 [ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="9_yhnra"]
-[ext_resource type="Texture2D" uid="uid://bj04vpanduun5" path="res://Assets/Sprites/guessBtn.png" id="10_p7xq5"]
-[ext_resource type="FontFile" uid="uid://b0p12gsdny86y" path="res://Assets/Fonts/Pixelta.ttf" id="11_16r2i"]
+[ext_resource type="Texture2D" uid="uid://6el06ymx5wvw" path="res://Assets/Sprites/Sprite-Revolver.png" id="10_sqxpa"]
+[ext_resource type="Texture2D" uid="uid://n0qid6ihho4v" path="res://Assets/Sprites/Sprite-RevolverHover.png" id="11_dri85"]
 [ext_resource type="AudioStream" uid="uid://oy8uf1gmiigr" path="res://Assets/Sounds/vhs_click.mp3" id="13_nvds3"]
+[ext_resource type="AudioStream" uid="uid://bvbflep58htlh" path="res://Assets/Sounds/shoot.mp3" id="14_sqxpa"]
 [ext_resource type="AudioStream" uid="uid://bk7pyeq1m6v0r" path="res://Assets/Sounds/buildupsfx1.mp3" id="14_yhnra"]
 [ext_resource type="AudioStream" uid="uid://bbj4kaydm35ct" path="res://Assets/Sounds/clockbg.mp3" id="15_wknnu"]
 [ext_resource type="AudioStream" uid="uid://cg1yio2o3fwp" path="res://Assets/Sounds/scarystring.mp3" id="16_g77ca"]
@@ -59,6 +60,67 @@ height = 0.3
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fw1vi"]
 shader = ExtResource("4_pb48a")
 shader_parameter/pixel_size = 4.0
+
+[sub_resource type="Animation" id="Animation_16r2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 289)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sqxpa"]
+resource_name = "shoot"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.16792126, 0.2, 0.25, 0.35000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 289), Vector2(568.00006, 169.00002), Vector2(681, 87.000015), Vector2(733.00006, 42), Vector2(773.00006, 97.00001), Vector2(689, 231), Vector2(753.00006, 242.00002), Vector2(548.00006, 419.00003), Vector2(499, 557), Vector2(465, 709)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.16792126, 0.2, 0.25, 0.35000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.10380568, 0.22565383, 0.3050878, 0.23833801, 0.094810486, 0.08436744, -0.18265232, -0.2998862, -0.2998862]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dri85"]
+_data = {
+&"RESET": SubResource("Animation_16r2i"),
+&"shoot": SubResource("Animation_sqxpa")
+}
 
 [node name="game" type="Node3D" unique_id=799005964 node_paths=PackedStringArray("currentPlayer")]
 script = ExtResource("1_nbu75")
@@ -129,6 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="gameUI" unique_id=478212007]
+z_index = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -241,39 +304,47 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="guessBtn" type="TextureButton" parent="gameUI" unique_id=312574620]
-offset_left = 1066.0
-offset_top = 535.0
-offset_right = 1212.0
-offset_bottom = 680.0
-texture_normal = ExtResource("10_p7xq5")
+offset_left = 576.0
+offset_top = 289.0
+offset_right = 1316.0015
+offset_bottom = 966.999
+texture_normal = ExtResource("10_sqxpa")
+texture_hover = ExtResource("11_dri85")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="gameUI/guessBtn" unique_id=357983609]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.5
-offset_top = -17.5
-offset_right = 58.5
-offset_bottom = 17.5
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gameUI/guessBtn" unique_id=1734162401]
+libraries/ = SubResource("AnimationLibrary_dri85")
+
+[node name="GunBlock" type="RichTextLabel" parent="gameUI" unique_id=863424216]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.68480563, 0.1711188, 0.1968472, 1)
-theme_override_colors/font_shadow_color = Color(0.23182729, 0.009089585, 0, 0)
-theme_override_colors/font_outline_color = Color(0.45365155, 0.008536506, 0.08017833, 1)
-theme_override_constants/shadow_offset_x = 9
-theme_override_constants/shadow_offset_y = 8
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("11_16r2i")
-theme_override_font_sizes/font_size = 32
-text = "k  i  l  l"
+scale = Vector2(0.64000005, 1)
+theme_override_fonts/normal_font = ExtResource("9_yhnra")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
+metadata/_edit_lock_ = true
+
+[node name="GunBlock2" type="RichTextLabel" parent="gameUI" unique_id=118858646]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9999999, 0.5600006)
+theme_override_fonts/normal_font = ExtResource("9_yhnra")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="BlackFade" type="TextureRect" parent="gameUI" unique_id=1099410730]
 visible = false
@@ -309,6 +380,11 @@ spot_angle = 59.02622
 [node name="GuessAudio" type="AudioStreamPlayer" parent="." unique_id=66525435]
 stream = ExtResource("13_nvds3")
 volume_db = 20.0
+
+[node name="shootAudio" type="AudioStreamPlayer" parent="." unique_id=1664478460]
+stream = ExtResource("14_sqxpa")
+volume_db = 5.0
+pitch_scale = 1.5
 
 [node name="buildupAudio" type="AudioStreamPlayer" parent="." unique_id=1185412878]
 stream = ExtResource("14_yhnra")

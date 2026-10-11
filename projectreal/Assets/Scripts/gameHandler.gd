@@ -2,6 +2,9 @@ extends Node3D
 
 @onready var mainMenuScene = preload("res://Assets/Scenes/main.tscn")
 
+@onready var revolverSprite = preload("res://Assets/Sprites/Sprite-Revolver.png")
+@onready var revolverHoverSprite = preload("res://Assets/Sprites/Sprite-RevolverHover.png")
+
 @onready var txtinput = $gameUI/TextureRect/Prompt
 @onready var blackFade = $gameUI/BlackFade
 
@@ -41,6 +44,8 @@ func _on_guess_btn_pressed() -> void:
 	$gameUI/guessBtn.visible = false
 	$gameUI/TextureRect.visible = false
 	currentPlayer.get_node("UI").visible = false
+	$gameUI/guessBtn/AnimationPlayer.play("shoot")
+	$shootAudio.play()
 	$GuessAudio.play(0.39)
 	var chosenNpc = get_node("NPC_" + var_to_str(currentPlayer.currentNPC))
 	chosenNpc.get_node("AnimationPlayer").play("killAnim")
@@ -93,3 +98,12 @@ func _on_guess_btn_pressed() -> void:
 	#parentNode.add_child(newMainMenuScene)
 	#get_tree().change_scene_to_node(newMainMenuScene)
 	get_tree().change_scene_to_file("res://Assets/Scenes/main.tscn")
+
+
+func _on_gun_model_mouse_entered() -> void:
+	if not currentPlayer.active: return
+	$gameUI/gunModel.texture = revolverHoverSprite
+
+func _on_gun_model_mouse_exited() -> void:
+	if not currentPlayer.active: return
+	$gameUI/gunModel.texture = revolverSprite
