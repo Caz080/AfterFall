@@ -84,9 +84,7 @@ func _on_move_left_button_pressed() -> void:
 	if not active: return
 	currentNPC -= 1
 	
-	
 func show_name():
-	
 	var personname = get_node("../gameUI/Control/MarginContainer/VBoxContainer/Person")
 	var npc = get_node("../NPC_"+str(currentNPC))
 	personname.text = npc.firstName + " " + npc.lastName

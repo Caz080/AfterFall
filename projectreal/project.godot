@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hackixreal"
-run/main_scene="uid://bwuhginvmsntu"
+run/main_scene="uid://ci0k8qfqx2eem"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var mainMenuScene = preload("res://Assets/Scenes/main.tscn")
+
 @onready var txtinput = $gameUI/TextureRect/Prompt
 @onready var blackFade = $gameUI/BlackFade
 
@@ -35,7 +37,13 @@ func _on_transcribed(t: String) -> void:
 	HttpManager.ask_question(t, currentPlayer.currentNPC, textbox)
 
 func _on_guess_btn_pressed() -> void:
+	$gameUI/Control.visible = false
+	$gameUI/guessBtn.visible = false
+	$gameUI/TextureRect.visible = false
+	currentPlayer.get_node("UI").visible = false
 	$GuessAudio.play(0.39)
+	var chosenNpc = get_node("NPC_" + var_to_str(currentPlayer.currentNPC))
+	chosenNpc.get_node("AnimationPlayer").play("killAnim")
 	currentPlayer.active = false
 	print("test")
 	
@@ -44,17 +52,44 @@ func _on_guess_btn_pressed() -> void:
 	sustext.text = "[shake rate=20.0 level=5 connected=1]And the alien is...[/shake]"
 	$clockBg.stop()
 	$buildupAudio.play()
+	var camTween = create_tween()
+	camTween.tween_property($Player/Offset/MainCamera, "fov", 45, 3)
+	camTween.play()
 	await get_tree().create_timer(3.0).timeout
 	
 	
 	var win = guess == HttpManager.alien
+	var alienNpc = get_node("NPC_" + var_to_str(HttpManager.alien))
 	
 	$scarystringsfx.play()
-	if win:
-		sustext.text = "You got it!"
-	else:
-		sustext.text = "You lost!"
-		$screamSfx.play()
 	currentPlayer.currentNPC = HttpManager.alien
-	var alienNPC = get_node("NPC_" + var_to_str(HttpManager.alien))
-	alienNPC.get_node("AnimationPlayer").play("isAlien")
+	camTween = create_tween()
+	camTween.tween_property($Player/Offset/MainCamera, "fov", 75, 0.25)
+	camTween.play()
+	if win:
+		sustext.text = "[tornado radius=5 freq=5]Dead![/tornado]"
+		blackFade.visible = true
+		await get_tree().create_timer(3.0).timeout
+		blackFade.visible = true
+		var tween := create_tween()
+		tween.tween_property(blackFade, "modulate:a", 1.0, 1.0)
+		await tween.finished
+	else:
+		sustext.text = ""
+		await get_tree().create_timer(0.25).timeout
+		alienNpc.get_node("AnimationPlayer").play("isAlien")
+		$screamSfx.play()
+		await get_tree().create_timer(1.5).timeout
+		blackFade.visible = true
+		var tween := create_tween()
+		tween.tween_property(blackFade, "modulate:a", 1.0, 0.0)
+		$screamSfx.stop()
+		$cutAudio.play()
+	await get_tree().create_timer(4).timeout
+	#var parentNode = self.get_parent()
+	#self.queue_free()
+	#await self.tree_exited
+	#var newMainMenuScene = mainMenuScene.instantiate()
+	#parentNode.add_child(newMainMenuScene)
+	#get_tree().change_scene_to_node(newMainMenuScene)
+	get_tree().change_scene_to_file("res://Assets/Scenes/main.tscn")

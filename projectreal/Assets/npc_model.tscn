@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cowlmlchaomq8" path="res://Assets/Scripts/npcHandler.gd" id="1_rdagg"]
 [ext_resource type="Texture2D" uid="uid://b11qvjrhd3erv" path="res://Assets/Sprites/Person/Sprite-Person-Head.png" id="2_xnmoo"]
-[ext_resource type="Texture2D" uid="uid://dlu6xw5s25ku3" path="res://Assets/Sprites/Sprite-mohawk.png" id="3_rnwvp"]
-[ext_resource type="Texture2D" uid="uid://cn4ycpd3hwuui" path="res://Assets/Sprites/Sprite-baldpatch.png" id="4_xnmoo"]
+[ext_resource type="Texture2D" uid="uid://cxb14hx05vmjc" path="res://Assets/Sprites/Hairs/Sprite-Hair-1-Base.png" id="3_1kho0"]
+[ext_resource type="Texture2D" uid="uid://nutruyoevrto" path="res://Assets/Sprites/Hairs/Sprite-Hair-3-Base.png" id="4_8brwx"]
 [ext_resource type="Texture2D" uid="uid://c0e40bm3kpenr" path="res://Assets/Sprites/Alien/Sprite-Alien-Head.png" id="5_cv3sp"]
+[ext_resource type="Texture2D" uid="uid://dgi2lg0vyw76" path="res://Assets/Sprites/Hairs/Sprite-Hair-4-Base.png" id="5_j0qq3"]
 [ext_resource type="Texture2D" uid="uid://b1cc0hlw2xsrv" path="res://Assets/Sprites/Person/Sprite-Person-Body.png" id="5_rn3ck"]
 [ext_resource type="Texture2D" uid="uid://5t8tf3g0qliu" path="res://Assets/Sprites/Shirts/Sprite-Regular-Shirt-Base.png" id="6_cv3sp"]
+[ext_resource type="Texture2D" uid="uid://dyfub526i12yf" path="res://Assets/Sprites/Hairs/Sprite-Hair-5-Base.png" id="6_kejcg"]
+[ext_resource type="Texture2D" uid="uid://x3t1b04mtoc0" path="res://Assets/Sprites/Hairs/Sprite-Hair-2-Base.png" id="7_u8y3q"]
+[ext_resource type="Texture2D" uid="uid://bpto611eoft4o" path="res://Assets/Sprites/Alien/Sprite-Alien-Neck.png" id="8_ti0gq"]
+[ext_resource type="Texture2D" uid="uid://dfgjpmxhd2yns" path="res://Assets/Sprites/Alien/Sprite-Alien-Torso.png" id="9_8brwx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kutc"]
 transparency = 1
@@ -44,38 +49,149 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AlienHead:visible")
+tracks/2/path = NodePath("Torso:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0, 0.9781968, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AlienHead:position")
+tracks/3/path = NodePath("Torso:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.61731476, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AlienHead:rotation")
+tracks/4/path = NodePath("Alien:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.18927185, 0, 0)]
+"values": [Vector3(0, 0, -0.01)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1kho0"]
+resource_name = "isAlien"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.9781968, 0), Vector3(0, 0.7472326, 0), Vector3(0, 0.41905856, 0), Vector3(0, -0.03223765, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.9781968, 0), Vector3(0, 0.7472326, 0), Vector3(0, 0.41905856, 0), Vector3(0, -0.03223765, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Alien:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.26666668, 0.3, 0.35658193),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.0883311, -0.01), Vector3(0, -0.36232734, -0.01), Vector3(0, 0, -0.01), Vector3(0, 0.07408106, 0.1888235), Vector3(0, 0.07408106, 0.39185423)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.26666668, 0.3, 0.35658193),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.07394798, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alien:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_xnmoo"]
@@ -107,45 +223,76 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AlienHead:visible")
+tracks/2/path = NodePath("initialCut:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AlienHead:position")
+tracks/3/path = NodePath("Torso:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2712317, 0.35, 0.45, 0.5029908, 0.53333336, 0.55),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.125, 0.15, 0.20216453, 0.29877412, 0.50093865),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0.61731476, 0), Vector3(0, 0.90472513, 0), Vector3(0, 1.051, 0), Vector3(0, 0.9903898, 0), Vector3(0, 0.978, 0.001), Vector3(0, 0.978, 0.001)]
+"values": [Vector3(0, 0.9781968, 0), Vector3(0, 0.79687613, 0), Vector3(0, 0.84447783, 0), Vector3(0.07264167, 0.7908136, 0), Vector3(0.14237773, 0.69863516, 0), Vector3(0.18127918, 0.64615446, 0), Vector3(0.40865147, -0.044481277, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AlienHead:rotation")
+tracks/4/path = NodePath("Torso:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.2712317, 0.35, 0.45, 0.5029908, 0.53333336, 0.55),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.125, 0.15, 0.20216453, 0.29877412, 0.50093865),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.18927185, 0, 0), Vector3(-0.08726646, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.21831465), Vector3(0, 0, -0.36847138), Vector3(0, 0, -0.36847138), Vector3(0, 0, -0.36847138)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Alien:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rn3ck"]
 _data = {
 &"RESET": SubResource("Animation_ti0gq"),
-&"isAlien": SubResource("Animation_xnmoo")
+&"isAlien": SubResource("Animation_1kho0"),
+&"killAnim": SubResource("Animation_xnmoo")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgepr"]
+albedo_color = Color(0.84644556, 0.026922658, 0, 1)
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1kho0"]
+lifetime_randomness = 0.2
+angle_min = -382.19998
+angle_max = 353.90002
+inherit_velocity_ratio = 0.231
+direction = Vector3(0, 1, 0)
+spread = 75.03
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_k3ha4"]
+size = Vector2(0.1, 0.1)
 
 [node name="NPCModel" type="Node3D" unique_id=718934892]
 script = ExtResource("1_rdagg")
@@ -168,19 +315,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
 
 [node name="Mohawk" type="Sprite3D" parent="Head/Hairs" unique_id=257850797]
 visible = false
-texture = ExtResource("3_rnwvp")
+modulate = Color(0.37254903, 0.1764706, 0.039215688, 1)
+texture = ExtResource("3_1kho0")
+
+[node name="Tommy" type="Sprite3D" parent="Head/Hairs" unique_id=1907171519]
+visible = false
+modulate = Color(0.37283832, 0.17693344, 0.039333533, 1)
+texture = ExtResource("4_8brwx")
+
+[node name="Stringy" type="Sprite3D" parent="Head/Hairs" unique_id=14744443]
+visible = false
+modulate = Color(0.37283832, 0.17693344, 0.039333533, 1)
+texture = ExtResource("5_j0qq3")
+
+[node name="Bartholemew" type="Sprite3D" parent="Head/Hairs" unique_id=617430978]
+visible = false
+modulate = Color(0.37283832, 0.17693344, 0.039333533, 1)
+texture = ExtResource("6_kejcg")
 
 [node name="Bald" type="Sprite3D" parent="Head/Hairs" unique_id=1548588908]
 visible = false
-texture = ExtResource("4_xnmoo")
-
-[node name="AlienHead" type="Sprite3D" parent="." unique_id=1570061157]
-transform = Transform3D(0.18875517, 0, 0, 0, 0.17155048, 0.0940719, 0, -0.032863047, 0.49107075, 0, 0.61731476, 0)
-visible = false
-texture = ExtResource("5_cv3sp")
+modulate = Color(0.37254903, 0.1764706, 0.039215688, 1)
+texture = ExtResource("7_u8y3q")
 
 [node name="Torso" type="Sprite3D" parent="." unique_id=1497271126]
-transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.9781968, 0)
+transform = Transform3D(0.1887552, 0, 0, 0, 0.17466988, 0, 0, 0, 0.5, 0, 0.9781968, 0)
 texture = ExtResource("5_rn3ck")
 
 [node name="Shirts" type="Node3D" parent="Torso" unique_id=1057833016]
@@ -193,3 +352,29 @@ texture = ExtResource("6_cv3sp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=946175467]
 libraries/ = SubResource("AnimationLibrary_rn3ck")
+
+[node name="Alien" type="Node3D" parent="." unique_id=57487771]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.01)
+visible = false
+
+[node name="AlienHead" type="Sprite3D" parent="Alien" unique_id=1570061157]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.978, 0.01)
+texture = ExtResource("5_cv3sp")
+
+[node name="AlienNeck" type="Sprite3D" parent="Alien" unique_id=225925972]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.978, 0.005)
+texture = ExtResource("8_ti0gq")
+
+[node name="AlienTorso" type="Sprite3D" parent="Alien" unique_id=1673793520]
+transform = Transform3D(0.18875517, 0, 0, 0, 0.17466983, 0, 0, 0, 0.5, 0, 0.978, 0.003)
+texture = ExtResource("9_8brwx")
+
+[node name="initialCut" type="GPUParticles3D" parent="." unique_id=351272021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3424668, 0)
+material_override = SubResource("StandardMaterial3D_fgepr")
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1kho0")
+draw_pass_1 = SubResource("QuadMesh_k3ha4")

@@ -35,7 +35,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_lkfso")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "A metor has crashed "
+text = "A [shake rate=5 level=10][color=#782d28]METEOR[/color][/shake] has crashed "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,7 +55,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_lkfso")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "Among them is 1 alien"
+text = "Among them is an [shake][color=#548772]alien[/color][/shake]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -75,7 +75,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_lkfso")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "Detective..."
+text = "[tornado radius=1 freq=2][color=#284478]Detective...[/color][/tornado]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

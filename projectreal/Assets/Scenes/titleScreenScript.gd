@@ -1,5 +1,7 @@
 extends Control
 
+@onready var gameScene = preload("res://Assets/Scenes/game.tscn")
+@onready var introScene = preload("res://Assets/Scenes/intro.tscn")
 
 @onready var gemLine: LineEdit = $GeminiKey/LineEdit
 @onready var labLine: LineEdit = $ElevenLabKey/LineEdit
@@ -73,6 +75,10 @@ func _process(delta: float) -> void:
 	
 func playBtn():
 	fade_in()
+	#self.queue_free()
+	#var newIntroScene = introScene.instantiate()
+	#get_tree().change_scene_to_node(newIntroScene)
+	#self.get_parent().add_child(newIntroScene)
 	get_tree().change_scene_to_file("res://Assets/Scenes/intro.tscn")
 	
 	

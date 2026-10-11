@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var gameScene = preload("res://Assets/Scenes/game.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,6 +10,10 @@ func _ready() -> void:
 	text.fade_in_children()
 	await get_tree().create_timer(8.0).timeout
 	fade_in()
+	await get_tree().create_timer(2.0).timeout
+	#self.queue_free()
+	#var newGameScene = gameScene.instantiate()
+	#self.get_parent().add_child(newGameScene)
 	
 	get_tree().change_scene_to_file("res://Assets/Scenes/game.tscn")
 	

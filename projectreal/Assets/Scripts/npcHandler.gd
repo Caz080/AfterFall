@@ -13,6 +13,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$initialCut.emitting = false
 	firstName = Global.firstNames.pick_random()
 	lastName = Global.lastNames.pick_random()
 	personalityInt = randi_range(1, 6)

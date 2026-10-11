@@ -11,11 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="7_fw1vi"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="9_4ao11"]
 [ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="9_yhnra"]
-[ext_resource type="Texture2D" uid="uid://cs0m2cw7qtdrd" path="res://Assets/Sprites/Sprite-arrow-right.png" id="11_xf01c"]
+[ext_resource type="Texture2D" uid="uid://bj04vpanduun5" path="res://Assets/Sprites/guessBtn.png" id="10_p7xq5"]
+[ext_resource type="FontFile" uid="uid://b0p12gsdny86y" path="res://Assets/Fonts/Pixelta.ttf" id="11_16r2i"]
 [ext_resource type="AudioStream" uid="uid://oy8uf1gmiigr" path="res://Assets/Sounds/vhs_click.mp3" id="13_nvds3"]
 [ext_resource type="AudioStream" uid="uid://bk7pyeq1m6v0r" path="res://Assets/Sounds/buildupsfx1.mp3" id="14_yhnra"]
 [ext_resource type="AudioStream" uid="uid://bbj4kaydm35ct" path="res://Assets/Sounds/clockbg.mp3" id="15_wknnu"]
 [ext_resource type="AudioStream" uid="uid://cg1yio2o3fwp" path="res://Assets/Sounds/scarystring.mp3" id="16_g77ca"]
+[ext_resource type="AudioStream" uid="uid://ct8t6icv5w6sl" path="res://Assets/Sounds/cutsfx.mp3" id="16_sqxpa"]
 [ext_resource type="AudioStream" uid="uid://b8fkdly2o41js" path="res://Assets/Sounds/scream1.mp3" id="17_p7xq5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw1vi"]
@@ -239,12 +241,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="guessBtn" type="TextureButton" parent="gameUI" unique_id=312574620]
-offset_left = 1111.0
-offset_top = 558.0
-offset_right = 1200.0
-offset_bottom = 658.0
-texture_normal = ExtResource("11_xf01c")
+offset_left = 1066.0
+offset_top = 535.0
+offset_right = 1212.0
+offset_bottom = 680.0
+texture_normal = ExtResource("10_p7xq5")
+ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="gameUI/guessBtn" unique_id=357983609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -17.5
+offset_right = 58.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68480563, 0.1711188, 0.1968472, 1)
+theme_override_colors/font_shadow_color = Color(0.23182729, 0.009089585, 0, 0)
+theme_override_colors/font_outline_color = Color(0.45365155, 0.008536506, 0.08017833, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("11_16r2i")
+theme_override_font_sizes/font_size = 32
+text = "k  i  l  l"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="BlackFade" type="TextureRect" parent="gameUI" unique_id=1099410730]
 visible = false
@@ -283,6 +312,11 @@ volume_db = 20.0
 
 [node name="buildupAudio" type="AudioStreamPlayer" parent="." unique_id=1185412878]
 stream = ExtResource("14_yhnra")
+volume_db = 10.0
+pitch_scale = 0.5
+
+[node name="cutAudio" type="AudioStreamPlayer" parent="." unique_id=2004455643]
+stream = ExtResource("16_sqxpa")
 volume_db = 10.0
 pitch_scale = 0.5
 
