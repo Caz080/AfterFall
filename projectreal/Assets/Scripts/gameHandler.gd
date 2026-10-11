@@ -15,6 +15,7 @@ func _ready() -> void:
 	var tween := create_tween()
 	tween.tween_property(blackFade, "modulate:a", 0.0, 1.0)
 	await tween.finished
+	blackFade.visible = false
 	
 	guessBtn.pressed.connect(_on_guess_btn_pressed)
 	

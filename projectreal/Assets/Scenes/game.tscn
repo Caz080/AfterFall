@@ -234,15 +234,6 @@ text = "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlackFade" type="TextureRect" parent="gameUI" unique_id=1099410730]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_4ao11")
-
 [node name="guessBtn" type="TextureButton" parent="gameUI" unique_id=312574620]
 offset_left = 1111.0
 offset_top = 558.0
@@ -250,6 +241,14 @@ offset_right = 1200.0
 offset_bottom = 658.0
 texture_normal = ExtResource("11_xf01c")
 stretch_mode = 0
+
+[node name="BlackFade" type="TextureRect" parent="gameUI" unique_id=1099410730]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_4ao11")
 
 [node name="Player" parent="." unique_id=777394373 node_paths=PackedStringArray("currentCamera") instance=ExtResource("2_pfbgl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.727, 0)
