@@ -41,7 +41,7 @@ func _ready():
 	
 	#print("Aliens: ", num1, num2)
 	
-	var alienPrompt = " YOU ARE THE ALIEN. When asked if you are human, you will say yes! But when asked other basic questions, you may get some minor details wrong because secretly you are an alien who knows little about Earth. Don't be too obvious though."
+	var alienPrompt = " YOU ARE THE ALIEN. When asked if you are human, you will say yes! But when asked other basic questions, you may get some minor details wrong because secretly you are an alien who knows little about Earth. Be somewhat obvious with your wrong details but don't mention being an alien."
 	personalities[num1] += alienPrompt
 	#personalities[num2] += alienPrompt
 	
@@ -57,7 +57,7 @@ func ask_question(prompt: String, charc: int, lbl: RichTextLabel):
 	var headers = ["content-type: application/json", "x-goog-api-key: " + key]
 	
 	#print("URL: ", url+"?key="+key)
-	var context = "Keep responses under 50 characters, 1-2 sentences. A meteor has landed in a town killing everyone but 6 people, 1 of which are aliens who were on the meteor and disguised themselves as a humans. You are one of the 6 people and are being interrogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! Give many specifics unless you are an alien, be slightly more vague. "
+	var context = "Keep responses under 50 characters, 1-2 sentences. A meteor has landed in a town killing everyone but 6 people, 1 of which are aliens who were on the meteor and disguised themselves as a humans. You are one of the 6 people and are being interrogated by a detective who is trying to find the aliens. Prove you are a human, sound and talk like a human, not like an alien or AI! Give many specifics unless you are an alien. "
 	var body = {
 		"system_instruction": {
 			"parts":[
