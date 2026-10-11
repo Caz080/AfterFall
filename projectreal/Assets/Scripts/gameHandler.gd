@@ -50,3 +50,5 @@ func _on_guess_btn_pressed() -> void:
 	else:
 		sustext.text = "You lost!"
 	currentPlayer.currentNPC = HttpManager.alien
+	var alienNPC = get_node("NPC_" + var_to_str(HttpManager.alien))
+	alienNPC.get_node("AnimationPlayer").play("isAlien")

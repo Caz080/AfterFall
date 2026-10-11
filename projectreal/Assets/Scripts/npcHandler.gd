@@ -3,6 +3,8 @@ extends Node3D
 @onready var Hairs = $Head/Hairs.get_children()
 @onready var Shirts = $Torso/Shirts.get_children()
 
+@onready var animationPlayer = $AnimationPlayer
+
 @export var firstName: String = "John"
 @export var lastName: String = "Doe"
 @export var personalityInt: int = 1
