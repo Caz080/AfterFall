@@ -3,9 +3,10 @@ extends Node3D
 @onready var moveLeftButton = $UI/moveLeftButton
 @onready var moveRightButton = $UI/moveRightButton
 
+@onready var buttonClick: AudioStreamPlayer = $buttonAudio
+
 @export var currentCamera: Camera3D
 var active = true
-@export var a: AudioStreamPlayer
 
 @export var currentNPC: int = 1:
 	set(new_val):
@@ -15,7 +16,7 @@ var active = true
 			elif new_val < 1:
 				new_val = 1
 			currentNPC = new_val
-			a.play()
+			buttonClick.play()
 			update_camera()
 			show_name()
 

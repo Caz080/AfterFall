@@ -35,22 +35,26 @@ func _on_transcribed(t: String) -> void:
 	HttpManager.ask_question(t, currentPlayer.currentNPC, textbox)
 
 func _on_guess_btn_pressed() -> void:
-	$Player/Offset/MainCamera/buttonAudio.play()
+	$GuessAudio.play(0.39)
 	currentPlayer.active = false
 	print("test")
 	
 	var guess = currentPlayer.currentNPC
 	var sustext = $gameUI/guessResult
 	sustext.text = "[shake rate=20.0 level=5 connected=1]And the alien is...[/shake]"
+	$clockBg.stop()
+	$buildupAudio.play()
 	await get_tree().create_timer(3.0).timeout
 	
 	
 	var win = guess == HttpManager.alien
 	
+	$scarystringsfx.play()
 	if win:
 		sustext.text = "You got it!"
 	else:
 		sustext.text = "You lost!"
+		$screamSfx.play()
 	currentPlayer.currentNPC = HttpManager.alien
 	var alienNPC = get_node("NPC_" + var_to_str(HttpManager.alien))
 	alienNPC.get_node("AnimationPlayer").play("isAlien")

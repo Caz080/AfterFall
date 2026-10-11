@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cs0m2cw7qtdrd" path="res://Assets/Sprites/Sprite-arrow-right.png" id="2_ng366"]
 [ext_resource type="Texture2D" uid="uid://dyxm70jf5wai" path="res://Assets/Sprites/Sprite-arrow-left.png" id="3_6vidr"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="4_wmw2k"]
+[ext_resource type="AudioStream" uid="uid://chj60m15xjg6s" path="res://Assets/Sounds/button_click2.mp3" id="5_6vidr"]
 
 [node name="Player" type="Node3D" unique_id=777394373]
 script = ExtResource("1_1fna3")
@@ -51,6 +52,9 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("4_wmw2k")
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=1639725658]
+stream = ExtResource("5_6vidr")
 
 [connection signal="pressed" from="UI/moveRightButton" to="." method="_on_move_right_button_pressed"]
 [connection signal="pressed" from="UI/moveLeftButton" to="." method="_on_move_left_button_pressed"]

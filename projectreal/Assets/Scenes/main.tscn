@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ci0k8qfqx2eem"]
 
-[ext_resource type="FontFile" uid="uid://dp7prcmlsouim" path="res://Assets/Fonts/KiwiSoda.ttf" id="1_l26l0"]
 [ext_resource type="Script" uid="uid://bh4gsv8heeoy5" path="res://Assets/Scenes/titleScreenScript.gd" id="1_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://dbwfi6k2r00ss" path="res://Assets/Sprites/blackScreen.png" id="2_qplxx"]
+[ext_resource type="FontFile" uid="uid://dujgi3xr0q1uh" path="res://Assets/Fonts/Slender by Simoncho Design.ttf" id="2_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://dyxm70jf5wai" path="res://Assets/Sprites/Sprite-arrow-left.png" id="3_guoxd"]
 [ext_resource type="Texture2D" uid="uid://lj4l4q3uatic" path="res://Assets/Sprites/Sprite-textbox.png" id="4_rvsrt"]
 
@@ -24,21 +24,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.04203315, 0.084174566, 0.1061387, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1422077399]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -317.0
-offset_top = 107.0
-offset_right = 317.0
-offset_bottom = 210.0
+offset_left = -569.0
+offset_top = 36.0
+offset_right = 569.0
+offset_bottom = 259.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("1_l26l0")
-theme_override_font_sizes/normal_font_size = 84
-text = "GAME TITLE"
+theme_override_fonts/normal_font = ExtResource("2_rvsrt")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[wave amp=40 freq=1][tornado radius=10 freq=0.1]AFTER[pulse color=#ff4f4f freq=0.2]FALL[/pulse][/tornado][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
